@@ -72,14 +72,48 @@ public class Patients {
     }
 
     //Create a method to set the patient's Age
-    public void setAge(int age) {
+    public void setPatientAge(int age) {
         this.age = age;
     }
     //Create a method to get the patient's Age
-    public int getAge() {
+    public int getPatientAge() {
         return age;
     }
 
+    //Create a metod to get the patient's Blood Group
+    public void setPatientBloodGroup(String patientBloodGroup) {
+        this.patientBloodGroup = patientBloodGroup;
+    }
+    //Create a method to get the patient's Blood Group
+    public String getPatientBloodGroup() {
+        return patientBloodGroup;
+    }
 
+    //Create a method to set the patient's Disease
+    public void setPatientDisease(String patientDisease) {
+        this.patientDisease = patientDisease;
+    }
+    //Create a method to get the patient's Disease
+    public String getPatientDisease() {
+        return patientDisease;
+    }
+
+    //Create a method to set the patient's Width
+    public void setPatientWidth(int width) {
+        this.width = width;
+    }
+    //Create a method to get the patient's Width
+    public int getPatientWidth() {
+        return width;
+    }
+
+    //Create a method to set the patient's Height
+    public void setPatientHeight(int height) {
+        this.height = height;
+    }
+    //Create a method to get the patient's Height
+    public int getPatientHeight() {
+        return height;
+    }
 
 }
