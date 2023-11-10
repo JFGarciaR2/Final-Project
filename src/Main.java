@@ -1,7 +1,3 @@
-package src;
-
-import java.sql.SQLOutput;
-
 public class Main {
     public static void main(String[] args) {
         Patients patient1 = new Patients();
