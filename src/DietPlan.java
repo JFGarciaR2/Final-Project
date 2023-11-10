@@ -89,4 +89,5 @@ public class DietPlan {
     public String getSpecificRecomendations() {
         return specificRecomendations;
     }
+    
 }
