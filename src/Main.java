@@ -4,34 +4,50 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Patients patient1 = new Patients();
-        patient1.setPatientId(1);
-        patient1.setPatientName("John");
-        patient1.setPatientAddress("123 Main St");
-        patient1.setPatientPhone("123-456-7890");
-        patient1.setPatientEmail("jhon@email.com");
-        patient1.setPatientAge(30);
-        patient1.setPatientBloodGroup("A+");
-        patient1.setPatientDisease("Cancer");
-        patient1.setPatientWidth(80);
-        patient1.setPatientHeight(180);
 
-        //Create a function that show all the patient's information
-        //...
+        //Create a list that contain all dates of Person
+        List<Person> personList = Person.getPersonList();
+        //Create a list that contain all dates of Meal
+        List<Meal> mealList = Meal.getMealList();
+        //Create a list that contain all dates of Patients
+        List<Patients> patientsList = Patients.getPatientsList();
+        //Create a list that contain all dates of Dietitian
+        List<Dietitian> dietitianList = Dietitian.getDietitianList();
+        //Create a list that contain all dates of DietPlan
+        List<DietPlan> dietPlanList = DietPlan.getDietPlanList();
+        //Create a list that contain all dates of DietPlan
 
-        List<Patients> patientInfo[] ;
+        //Create a loop to print all dates of Person
+        for (Person person : personList) {
+            System.out.println(person);
+        }
+        //Create a loop to print all dates of Meal
+        for (Meal meal : mealList) {
+            System.out.println(meal);
+        }
+        //Create a loop to print all dates of Patients
+        for (Patients patients : patientsList) {
+            System.out.println(patients);
+        }
+        //Create a loop to print all dates of Dietitian
+        for (Dietitian dietitian : dietitianList) {
+            System.out.println(dietitian);
+        }
+        //Create a loop to print all dates of DietPlan
+        for (DietPlan dietPlan : dietPlanList) {
+            System.out.println(dietPlan);
+        }
 
 
-        System.out.println("Patient ID: " + patient1.getPatientId());
-        System.out.println("Patient Name: " + patient1.getPatientName());
-        System.out.println("Patient Address: " + patient1.getPatientAddress());
-        System.out.println("Patient Phone: " + patient1.getPatientPhone());
-        System.out.println("Patient Email: " + patient1.getPatientEmail());
-        System.out.println("Patient Age: " + patient1.getPatientAge());
-        System.out.println("Patient Blood Group: " + patient1.getPatientBloodGroup());
-        System.out.println("Patient Disease: " + patient1.getPatientDisease());
-        System.out.println("Patient Width: " + patient1.getPatientWidth());
-        System.out.println("Patient Height: " + patient1.getPatientHeight());
-
+        //Fill the list with the data from the database
+        Person.fillPersonList(personList);
+        //Fill the list with the data from the database
+        Meal.fillMealList(mealList);
+        //Fill the list with the data from the database
+        Patients.fillPatientsList(patientsList);
+        //Fill the list with the data from the database
+        Dietitian.fillDietitianList(dietitianList);
+        //Fill the list with the data from the database
+        DietPlan.fillDietPlanList(dietPlanList);
     }
 }

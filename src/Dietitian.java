@@ -1,5 +1,16 @@
+import java.util.List;
+
 public class Dietitian extends Person {
     private String dietitianSpeciality = "";
+
+    public static void fillDietitianList(List<Dietitian> dietitianList) {
+        //TODO: Fill the list with the data from the database
+
+    }
+
+    public static List<Dietitian> getDietitianList() {
+        return null;
+    }
 
     //Create a method to set the dietitian's speciality
     public void setDietitianSpeciality(String dietitianSpeciality) {

@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Person {
     private int personId = 0;
     private String personName = "";
@@ -9,6 +11,15 @@ public class Person {
     private int age = 0;
     private int width = 0;
     private int height = 0;
+
+    public static void fillPersonList(List<Person> personList) {
+        //TODO: Fill the list with the data from the database
+
+    }
+
+    public static List<Person> getPersonList() {
+        return null;
+    }
 
 
     //Create a method to set the person's id
@@ -82,4 +93,5 @@ public class Person {
     public int getWidth() {
         return width;
     }
+
 }

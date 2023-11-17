@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class DietPlan {
     private int planId = 0;
     private String planName = "";
@@ -10,6 +12,15 @@ public class DietPlan {
     private String specificRecomendations = "";
     private Patients patients;
     private Dietitian dietitian;
+
+    public static void fillDietPlanList(List<DietPlan> dietPlanList) {
+        //TODO: Fill the list with the data from the database
+
+    }
+
+    public static List<DietPlan> getDietPlanList() {
+        return null;
+    }
 
 
     //Create a method to set the plan's id
@@ -127,10 +138,29 @@ public class DietPlan {
         //16. If the user wants to create another dietplan, go to step 1
         //17. If the user doesn't want to create another dietplan, go to the main menu
         //Now, let's code it!
-        
+
     }
 
     public void ajustDietPlan(){
+        //create a method that ajusts a dietplan
+        //How?
+        //1. Ask for the dietplan's id
+        //2. Ask for the dietplan's name
+        //3. Ask for the dietplan's description
+        //4. Ask for the dietplan's type
+        //5. Ask for the dietplan's duration
+        //6. Ask for the dietplan's price
+        //7. Ask for the dietplan's daily calories
+        //8. Ask for the dietplan's macronutrient distribution
+        //9. Ask for the dietplan's specific recomendations
+        //10. Create a dietplan object with the information provided
+        //11. Save the dietplan object in the database
+        //12. Show a message that the dietplan was ajusted successfully
+        //13. Show the dietplan's information
+        //14. Ask if the user wants to ajust another dietplan
+        //15. If the user wants to ajust another dietplan, go to step 1
+        //16. If the user doesn't want to ajust another dietplan, go to the main menu
+        //Now, let's code it!
 
     }
 }

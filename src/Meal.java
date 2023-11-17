@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Meal {
     private int mealId = 0;
     private String mealName = "";
@@ -6,6 +8,14 @@ public class Meal {
     private String mealCalories = "";
     private String macroNutrients = "";
     private String timeOfDay = "";
+
+    public static void fillMealList(List<Meal> mealList) {
+        //TODO: Fill the list with the data from the database
+    }
+
+    public static List<Meal> getMealList() {
+        return null;
+    }
 
 
     //Create a method to set the meal's id
