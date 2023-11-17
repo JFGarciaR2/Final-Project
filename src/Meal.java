@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Meal {
@@ -78,4 +79,16 @@ public class Meal {
         return timeOfDay;
     }
 
+    Meal meal = new Meal();
+    List <String> MealList = new ArrayList<>() {
+        {
+            MealList.add(String.valueOf(meal.getMealId()));
+            MealList.add(meal.getMealName());
+            MealList.add(meal.getMealDescription());
+            MealList.add(meal.getMealType());
+            MealList.add(meal.getMealCalories());
+            MealList.add(meal.getMacroNutrients());
+            MealList.add(meal.getTimeOfDay());
+        }
+    };
 }

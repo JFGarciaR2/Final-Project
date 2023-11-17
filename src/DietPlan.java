@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class DietPlan {
@@ -94,7 +95,7 @@ public class DietPlan {
         return specificRecomendations;
     }
 
-    public DietPlan(String planName, String planDescription, String planType, String planDuration, String planPrice, int dayliCalories, String macronutrientDistribution, String specificRecomendations, Patients patients, Dietitian dietitian) {
+    public DietPlan() {
         this.planName = planName;
         this.planDescription = planDescription;
         this.planType = planType;
@@ -153,4 +154,18 @@ public class DietPlan {
         //Now, let's code it!
 
     }
+
+    DietPlan dietPlan = new DietPlan();
+    List<String> DietPlanList = new ArrayList<String>(){
+        {
+            DietPlanList.add(dietPlan.getPlanName());
+            DietPlanList.add(dietPlan.getPlanDescription());
+            DietPlanList.add(dietPlan.getPlanType());
+            DietPlanList.add(dietPlan.getPlanDuration());
+            DietPlanList.add(dietPlan.getPlanPrice());
+            DietPlanList.add(String.valueOf(dietPlan.getDayliCalories()));
+            DietPlanList.add(dietPlan.getMacronutrientDistribution());
+            DietPlanList.add(dietPlan.getSpecificRecomendations());
+        }
+    };
 }
