@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dietitian extends Person {
@@ -8,9 +9,19 @@ public class Dietitian extends Person {
 
     }
 
-    public static List<Dietitian> getDietitianList() {
-        return null;
-    }
+    Dietitian dietitian = new Dietitian();
+    private List<String> DietitianList = new ArrayList<String>() {
+        {
+            DietitianList.add(dietitian.getPersonName());
+            DietitianList.add(dietitian.getPersonPhone());
+            DietitianList.add(dietitian.getPersonEmail());
+            DietitianList.add(dietitian.getPersonGender());
+            DietitianList.add(dietitian.getPersonAddress());
+            DietitianList.add(dietitian.getPersonOcupation());
+            DietitianList.add(dietitian.getDietitianSpeciality());
+        }
+    };
+
 
     //Create a method to set the dietitian's speciality
     public void setDietitianSpeciality(String dietitianSpeciality) {

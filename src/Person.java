@@ -94,4 +94,24 @@ public class Person {
         return width;
     }
 
+    //Create a method to set the person's Gender
+    public void setPersonGender(String personGender) {
+        this.personGender = personGender;
+    }
+    //Create a method to get the person's Gender
+    public String getPersonGender() {
+        return personGender;
+    }
+
+    //Create a method to set the person's Address
+    public void setPersonAddress(String personAddress) {
+        this.personAddress = personAddress;
+    }
+    //Create a method to get the person's Address
+    public String getPersonAddress() {
+        return personAddress;
+    }
+
+
+
 }
