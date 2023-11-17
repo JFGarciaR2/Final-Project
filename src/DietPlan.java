@@ -13,16 +13,6 @@ public class DietPlan {
     private Patients patients;
     private Dietitian dietitian;
 
-    public static void fillDietPlanList(List<DietPlan> dietPlanList) {
-        //TODO: Fill the list with the data from the database
-
-    }
-
-    public static List<DietPlan> getDietPlanList() {
-        return null;
-    }
-
-
     //Create a method to set the plan's id
     public void setPlanId(int planId) {
         this.planId = planId;

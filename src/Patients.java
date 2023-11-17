@@ -5,7 +5,7 @@ public class Patients extends Person {
     private String patientBloodGroup = "";
     private String patientDisease = "";
 
-    //Create a metod to get the patient's Blood Group
+    //Create a metod to set the patient's Blood Group
     public void setPatientBloodGroup(String patientBloodGroup) {
         this.patientBloodGroup = patientBloodGroup;
     }
@@ -23,8 +23,8 @@ public class Patients extends Person {
         return patientDisease;
     }
 
-    Patients patients = new Patients();
-    private List<String> PatientsList = new ArrayList<String>() {
+    static Patients patients = new Patients();
+    private static List<String> PatientsList = new ArrayList<String>() {
         {
             PatientsList.add(patients.getPersonName());
             PatientsList.add(patients.getPersonPhone());
@@ -36,4 +36,9 @@ public class Patients extends Person {
             PatientsList.add(patients.getPatientDisease());
         }
     };
+
+    public static List<String> getPatientsList() {
+        return PatientsList;
+    }
+
 }

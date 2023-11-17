@@ -9,9 +9,6 @@ public class Meal {
     private String macroNutrients = "";
     private String timeOfDay = "";
 
-    public static void fillMealList(List<Meal> mealList) {
-        //TODO: Fill the list with the data from the database
-    }
 
     public static List<Meal> getMealList() {
         return null;

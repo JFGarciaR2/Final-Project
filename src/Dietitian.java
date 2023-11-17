@@ -4,9 +4,13 @@ import java.util.List;
 public class Dietitian extends Person {
     private String dietitianSpeciality = "";
 
-    public static void fillDietitianList(List<Dietitian> dietitianList) {
-        //TODO: Fill the list with the data from the database
-
+    //Create a method to set the dietitian's speciality
+    public void setDietitianSpeciality(String dietitianSpeciality) {
+        this.dietitianSpeciality = dietitianSpeciality;
+    }
+    //Create a method to get the dietitian's speciality
+    public String getDietitianSpeciality() {
+        return dietitianSpeciality;
     }
 
     Dietitian dietitian = new Dietitian();
@@ -21,15 +25,4 @@ public class Dietitian extends Person {
             DietitianList.add(dietitian.getDietitianSpeciality());
         }
     };
-
-
-    //Create a method to set the dietitian's speciality
-    public void setDietitianSpeciality(String dietitianSpeciality) {
-        this.dietitianSpeciality = dietitianSpeciality;
-    }
-    //Create a method to get the dietitian's speciality
-    public String getDietitianSpeciality() {
-        return dietitianSpeciality;
-    }
-
 }
