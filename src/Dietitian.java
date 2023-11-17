@@ -3,6 +3,8 @@ import java.util.List;
 
 public class Dietitian extends Person {
     private String dietitianSpeciality = "";
+    static Dietitian dietitian = new Dietitian();
+
 
     //Create a method to set the dietitian's speciality
     public void setDietitianSpeciality(String dietitianSpeciality) {
@@ -13,8 +15,7 @@ public class Dietitian extends Person {
         return dietitianSpeciality;
     }
 
-    Dietitian dietitian = new Dietitian();
-    private List<String> DietitianList = new ArrayList<String>() {
+    private static List<String> DietitianList = new ArrayList<String>() {
         {
             DietitianList.add(dietitian.getPersonName());
             DietitianList.add(dietitian.getPersonPhone());
@@ -25,4 +26,8 @@ public class Dietitian extends Person {
             DietitianList.add(dietitian.getDietitianSpeciality());
         }
     };
+
+    public static List<String> getDietitianList() {
+        return DietitianList;
+    }
 }

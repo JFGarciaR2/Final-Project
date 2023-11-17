@@ -10,10 +10,7 @@ public class Meal {
     private String macroNutrients = "";
     private String timeOfDay = "";
 
-
-    public static List<Meal> getMealList() {
-        return null;
-    }
+    static Meal meal = new Meal();
 
 
     //Create a method to set the meal's id
@@ -79,8 +76,7 @@ public class Meal {
         return timeOfDay;
     }
 
-    Meal meal = new Meal();
-    List <String> MealList = new ArrayList<>() {
+    private static List <String> MealList = new ArrayList<String>() {
         {
             MealList.add(String.valueOf(meal.getMealId()));
             MealList.add(meal.getMealName());
@@ -91,4 +87,9 @@ public class Meal {
             MealList.add(meal.getTimeOfDay());
         }
     };
+
+    public static List<String> getMealList() {
+        return MealList;
+    }
 }
+

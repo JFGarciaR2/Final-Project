@@ -14,6 +14,8 @@ public class DietPlan {
     private Patients patients;
     private Dietitian dietitian;
 
+    static DietPlan dietPlan = new DietPlan();
+
     //Create a method to set the plan's id
     public void setPlanId(int planId) {
         this.planId = planId;
@@ -155,8 +157,7 @@ public class DietPlan {
 
     }
 
-    DietPlan dietPlan = new DietPlan();
-    List<String> DietPlanList = new ArrayList<String>(){
+    static List<String> DietPlanList = new ArrayList<String>(){
         {
             DietPlanList.add(dietPlan.getPlanName());
             DietPlanList.add(dietPlan.getPlanDescription());
@@ -168,4 +169,8 @@ public class DietPlan {
             DietPlanList.add(dietPlan.getSpecificRecomendations());
         }
     };
+
+    public static List<String> getDietPlanList() {
+        return DietPlanList;
+    }
 }
