@@ -112,48 +112,12 @@ public class DietPlan {
 
     public void createDietPlan(){
     //create a dietplan method that creates a dietplan
-        //How?
-        //1. Ask for the dietitian's id
-        //2. Ask for the patient's id
-        //3. Ask for the dietplan's name
-        //4. Ask for the dietplan's description
-        //5. Ask for the dietplan's type
-        //6. Ask for the dietplan's duration
-        //7. Ask for the dietplan's price
-        //8. Ask for the dietplan's daily calories
-        //9. Ask for the dietplan's macronutrient distribution
-        //10. Ask for the dietplan's specific recomendations
-        //11. Create a dietplan object with the information provided
-        //12. Save the dietplan object in the database
-        //13. Show a message that the dietplan was created successfully
-        //14. Show the dietplan's information
-        //15. Ask if the user wants to create another dietplan
-        //16. If the user wants to create another dietplan, go to step 1
-        //17. If the user doesn't want to create another dietplan, go to the main menu
-        //Now, let's code it!
+
 
     }
 
     public void ajustDietPlan(){
         //create a method that ajusts a dietplan
-        //How?
-        //1. Ask for the dietplan's id
-        //2. Ask for the dietplan's name
-        //3. Ask for the dietplan's description
-        //4. Ask for the dietplan's type
-        //5. Ask for the dietplan's duration
-        //6. Ask for the dietplan's price
-        //7. Ask for the dietplan's daily calories
-        //8. Ask for the dietplan's macronutrient distribution
-        //9. Ask for the dietplan's specific recomendations
-        //10. Create a dietplan object with the information provided
-        //11. Save the dietplan object in the database
-        //12. Show a message that the dietplan was ajusted successfully
-        //13. Show the dietplan's information
-        //14. Ask if the user wants to ajust another dietplan
-        //15. If the user wants to ajust another dietplan, go to step 1
-        //16. If the user doesn't want to ajust another dietplan, go to the main menu
-        //Now, let's code it!
 
     }
 

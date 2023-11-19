@@ -2,47 +2,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Patients extends Person {
+    // Attributes specific to Patients class
     private String patientBloodGroup = "";
     private String patientDisease = "";
 
-    static Patients patients = new Patients();
+    private int patientWeight = 0;
 
-    //Create a metod to set the patient's Blood Group
+    //Create a method to set the patient's weight
+    public void setPatientWeight(int patientWeight) {
+        this.patientWeight = patientWeight;
+    }
+    //Create a method to get the patient's weight
+    public int getPatientWeight() {
+        return patientWeight;
+    }
+
+    //Create a method to set the patient's blood group
     public void setPatientBloodGroup(String patientBloodGroup) {
         this.patientBloodGroup = patientBloodGroup;
     }
-    //Create a method to get the patient's Blood Group
+    //Create a method to get the patient's blood group
     public String getPatientBloodGroup() {
         return patientBloodGroup;
     }
 
-    //Create a method to set the patient's Disease
+    //Create a method to set the patient's disease
     public void setPatientDisease(String patientDisease) {
         this.patientDisease = patientDisease;
     }
-    //Create a method to get the patient's Disease
+    //Create a method to get the patient's disease
     public String getPatientDisease() {
         return patientDisease;
     }
 
-    private static List<String> PatientsList = new ArrayList<String>() {
-        {
-            PatientsList.add(patients.getPersonName());
-            PatientsList.add(patients.getPersonPhone());
-            PatientsList.add(patients.getPersonEmail());
-            PatientsList.add(patients.getPersonGender());
-            PatientsList.add(patients.getPersonAddress());
-            PatientsList.add(patients.getPersonOcupation());
-            PatientsList.add(patients.getPatientBloodGroup());
-            PatientsList.add(patients.getPatientDisease());
-        }
-    };
 
-    public static List<String> getPatientsList() {
-        return PatientsList;
+    // List to store instances of patients
+    private static List<Patients> patientsList = new ArrayList<>();
+
+    // Constructor to initialize a patient with data
+    public Patients(int personId, String patientName, String patientPhone, String patientEmail, String patientGender,
+                    String patientAddress, String patientOccupation, int patientAge, int patientWeight, int patientHeight, int personWeight, String patientBloodGroup, String patientDisease) {
+        setPersonId(personId);
+        setPersonName(patientName);
+        setPersonPhone(patientPhone);
+        setPersonEmail(patientEmail);
+        setPersonGender(patientGender);
+        setPersonAddress(patientAddress);
+        setPersonOccupation(patientOccupation);
+        setPersonAge(patientAge);
+        setPersonWidth(patientWeight);
+        setPersonHeight(patientHeight);
+        this.patientWeight = patientWeight;
+        this.patientBloodGroup = patientBloodGroup;
+        this.patientDisease = patientDisease;
+
+        // Add the patient to the list when an instance is created
+        patientsList.add(this);
     }
 
-    public void setPatientsList(List<String> patientsList) {
-        PatientsList = patientsList;
+    // Get the list of patients
+    public static List<Patients> getPatientsList() {
+        return patientsList;
     }
 }

@@ -7,7 +7,7 @@ public class Person {
     private String personEmail = "";
     private String personGender = "";
     private String personAddress = "";
-    private String personOcupation = "";
+    private String personOccupation = "";
     private int age = 0;
     private int width = 0;
     private int height = 0;
@@ -49,17 +49,17 @@ public class Person {
         return personEmail;
     }
 
-    //Create a method to get the person's Ocupation
-    public void setPersonOcupation(String personOcupation) {
-        this.personOcupation = personOcupation;
+    //Create a method to get the person's Occupation
+    public void setPersonOccupation(String personOcupation) {
+        this.personOccupation = personOcupation;
     }
-    //Create a method to get the person's Ocupation
-    public String getPersonOcupation() {
-        return personOcupation;
+    //Create a method to get the person's Occupation
+    public String getPersonOccupation() {
+        return personOccupation;
     }
 
     //Create a method to get the person's age
-    public void setAge(int age) {
+    public void setPersonAge(int age) {
         this.age = age;
     }
     //Create a method to get the person's age
@@ -68,7 +68,7 @@ public class Person {
     }
 
     //Create a method to get the person's height
-    public void setHeight(int height) {
+    public void setPersonHeight(int height) {
         this.height = height;
     }
     //Create a method to get the person's height
@@ -77,7 +77,7 @@ public class Person {
     }
 
     //Create a method to get the person's width
-    public void setWidth(int width) {
+    public void setPersonWidth(int width) {
         this.width = width;
     }
     //Create a method to get the person's width

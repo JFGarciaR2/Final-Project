@@ -3,31 +3,27 @@ import java.util.List;
 
 public class Dietitian extends Person {
     private String dietitianSpeciality = "";
-    static Dietitian dietitian = new Dietitian();
 
+    // List to store instances of nutritionists
+    private static List<Dietitian> dietitianList = new ArrayList<>();
 
-    //Create a method to set the dietitian's speciality
-    public void setDietitianSpeciality(String dietitianSpeciality) {
-        this.dietitianSpeciality = dietitianSpeciality;
+    // Constructor to initialize a nutritionist with data
+    public Dietitian(int personId, String dietitianName, String dietitianPhone, String dietitianEmail, String dietitianGender,
+                     int patientAge, String speciality) {
+        setPersonId(personId);
+        setPersonName(dietitianName);
+        setPersonPhone(dietitianPhone);
+        setPersonEmail(dietitianEmail);
+        setPersonGender(dietitianGender);
+        setPersonAge(patientAge);
+        this.dietitianSpeciality = speciality;
+
+        // Add the nutritionist to the list when an instance is created
+        dietitianList.add(this);
     }
-    //Create a method to get the dietitian's speciality
-    public String getDietitianSpeciality() {
-        return dietitianSpeciality;
-    }
 
-    private static List<String> DietitianList = new ArrayList<String>() {
-        {
-            DietitianList.add(dietitian.getPersonName());
-            DietitianList.add(dietitian.getPersonPhone());
-            DietitianList.add(dietitian.getPersonEmail());
-            DietitianList.add(dietitian.getPersonGender());
-            DietitianList.add(dietitian.getPersonAddress());
-            DietitianList.add(dietitian.getPersonOcupation());
-            DietitianList.add(dietitian.getDietitianSpeciality());
-        }
-    };
-
-    public static List<String> getDietitianList() {
-        return DietitianList;
+    // Get the list of nutritionists
+    public static List<Dietitian> getDietitianList() {
+        return dietitianList;
     }
 }
