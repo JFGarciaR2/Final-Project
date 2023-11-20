@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 public class Patients extends Person {
     // Attributes specific to Patients class
@@ -64,4 +65,18 @@ public class Patients extends Person {
     public static List<Patients> getPatientsList() {
         return patientsList;
     }
+
+    public static void removePatientByName(String name) {
+        Iterator<Patients> iterator = patientsList.iterator();
+        while (iterator.hasNext()) {
+            Patients patient = iterator.next();
+            if (patient.getPersonName().equalsIgnoreCase(name)) {
+                iterator.remove();
+                System.out.println("Delete Patient: " + name);
+                return;
+            }
+        }
+        System.out.println("Not found a patient with name : " + name);
+    }
+
 }
