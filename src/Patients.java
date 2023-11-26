@@ -1,15 +1,16 @@
+//Author: Juan Fernando Garcia Restrepo
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
 
 public class Patients extends Person {
+
     // Attributes specific to Patients class
     private String patientBloodGroup = "";
     private String patientDisease = "";
     private int patientWeight = 0;
     private int patientHeight = 0;
-    private int width = 0;
-
 
     // Create a methods Setters and Getters
     public void setPatientBloodGroup(String patientBloodGroup) {
@@ -40,38 +41,22 @@ public class Patients extends Person {
         return patientHeight;
     }
 
-    public void setPatientWidth(int width) {
-        this.width = width;
-    }
-    public int getPatientWidth() {
-        return width;
-    }
-
 
     // List to store instances of patients
     private static List<Patients> patientsList = new ArrayList<>();
 
     // Constructor to initialize a patient with data
-    public Patients(int personId, String patientName, String patientPhone, String patientEmail, String patientGender,
-                    String patientAddress, String patientOccupation, int patientAge, int patientWeight, int patientHeight, int patientWidth, String patientBloodGroup, String patientDisease) {
-        setPersonId(personId);
-        setPersonName(patientName);
-        setPersonPhone(patientPhone);
-        setPersonEmail(patientEmail);
-        setPersonGender(patientGender);
-        setPersonAddress(patientAddress);
-        setPersonOccupation(patientOccupation);
-        setPersonAge(patientAge);
+    public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
+        super(personId, personName, personPhone, personEmail, personGender, personAddress, personOccupation, age);
+        setPatientBloodGroup(patientBloodGroup);
+        setPatientDisease(patientDisease);
         setPatientWeight(patientWeight);
         setPatientHeight(patientHeight);
-        this.patientWidth = patientWidth;
-        this.patientBloodGroup = patientBloodGroup;
-        this.patientDisease = patientDisease;
 
         // Add the patient to the list when an instance is created
         patientsList.add(this);
     }
-
+    
     // Get the list of patients
     public static List<Patients> getPatientsList() {
         return patientsList;
