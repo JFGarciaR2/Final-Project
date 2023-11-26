@@ -9,9 +9,19 @@ public class Person {
     private String personAddress = "";
     private String personOccupation = "";
     private int age = 0;
-    private int width = 0;
-    private int height = 0;
-    
+
+    //Method Constructor
+    public Person(int personId, String personName, String personPhone, String personEmail, String personGender,
+                  String personAddress, String personOccupation, int age) {
+        setPersonId(personId);
+        setPersonName(personName);
+        setPersonPhone(personPhone);
+        setPersonEmail(personEmail);
+        setPersonGender(personGender);
+        setPersonAddress(personAddress);
+        setPersonOccupation(personOccupation);
+        setPersonAge(age);
+    }
 
     //Create a method to set the person's id
     public void setPersonId(int personId) {
@@ -65,24 +75,6 @@ public class Person {
     //Create a method to get the person's age
     public int getAge() {
         return age;
-    }
-
-    //Create a method to get the person's height
-    public void setPersonHeight(int height) {
-        this.height = height;
-    }
-    //Create a method to get the person's height
-    public int getHeight() {
-        return height;
-    }
-
-    //Create a method to get the person's width
-    public void setPersonWidth(int width) {
-        this.width = width;
-    }
-    //Create a method to get the person's width
-    public int getWidth() {
-        return width;
     }
 
     //Create a method to set the person's Gender

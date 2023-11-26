@@ -6,34 +6,45 @@ public class Patients extends Person {
     // Attributes specific to Patients class
     private String patientBloodGroup = "";
     private String patientDisease = "";
-
     private int patientWeight = 0;
+    private int patientHeight = 0;
+    private int width = 0;
 
-    //Create a method to set the patient's weight
-    public void setPatientWeight(int patientWeight) {
-        this.patientWeight = patientWeight;
-    }
-    //Create a method to get the patient's weight
-    public int getPatientWeight() {
-        return patientWeight;
-    }
 
-    //Create a method to set the patient's blood group
+    // Create a methods Setters and Getters
     public void setPatientBloodGroup(String patientBloodGroup) {
         this.patientBloodGroup = patientBloodGroup;
     }
-    //Create a method to get the patient's blood group
     public String getPatientBloodGroup() {
         return patientBloodGroup;
     }
 
-    //Create a method to set the patient's disease
     public void setPatientDisease(String patientDisease) {
         this.patientDisease = patientDisease;
     }
-    //Create a method to get the patient's disease
     public String getPatientDisease() {
         return patientDisease;
+    }
+
+    public void setPatientWeight(int patientWeight) {
+        this.patientWeight = patientWeight;
+    }
+    public int getPatientWeight() {
+        return patientWeight;
+    }
+
+    public void setPatientHeight(int patientHeight) {
+        this.patientHeight = patientHeight;
+    }
+    public int getPatientHeight() {
+        return patientHeight;
+    }
+
+    public void setPatientWidth(int width) {
+        this.width = width;
+    }
+    public int getPatientWidth() {
+        return width;
     }
 
 
@@ -42,7 +53,7 @@ public class Patients extends Person {
 
     // Constructor to initialize a patient with data
     public Patients(int personId, String patientName, String patientPhone, String patientEmail, String patientGender,
-                    String patientAddress, String patientOccupation, int patientAge, int patientWeight, int patientHeight, int personWeight, String patientBloodGroup, String patientDisease) {
+                    String patientAddress, String patientOccupation, int patientAge, int patientWeight, int patientHeight, int patientWidth, String patientBloodGroup, String patientDisease) {
         setPersonId(personId);
         setPersonName(patientName);
         setPersonPhone(patientPhone);
@@ -51,9 +62,9 @@ public class Patients extends Person {
         setPersonAddress(patientAddress);
         setPersonOccupation(patientOccupation);
         setPersonAge(patientAge);
-        setPersonWidth(patientWeight);
-        setPersonHeight(patientHeight);
-        this.patientWeight = patientWeight;
+        setPatientWeight(patientWeight);
+        setPatientHeight(patientHeight);
+        this.patientWidth = patientWidth;
         this.patientBloodGroup = patientBloodGroup;
         this.patientDisease = patientDisease;
 
