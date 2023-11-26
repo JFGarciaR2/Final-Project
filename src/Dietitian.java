@@ -18,7 +18,7 @@ public class Dietitian extends Person {
     //Constructor to initialize a nutritionist with data
     public Dietitian(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String dietitianSpeciality) {
         super(personId, personName, personPhone, personEmail, personGender, personAddress, personOccupation, age);
-        this.dietitianSpeciality = dietitianSpeciality;
+        setDietitianSpeciality(dietitianSpeciality);
 
         // Add the nutritionist to the list when an instance is created
         dietitianList.add(this);

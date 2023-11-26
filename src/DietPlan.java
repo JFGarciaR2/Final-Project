@@ -15,6 +15,7 @@ public class DietPlan {
     private String specificRecomendations = "";
     private Patients patients;
     private Dietitian dietitian;
+    private Meal meal;
 
     static DietPlan dietPlan = new DietPlan();
 
@@ -110,6 +111,7 @@ public class DietPlan {
         this.specificRecomendations = specificRecomendations;
         this.patients = patients;
         this.dietitian = dietitian;
+        this.meal = meal;
     }
 
     public void createDietPlan(){
