@@ -45,6 +45,7 @@ public class Patients extends Person {
     // List to store instances of patients
     private static List<Patients> patientsList = new ArrayList<>();
 
+
     // Constructor to initialize a patient with data
     public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
         super(personId, personName, personPhone, personEmail, personGender, personAddress, personOccupation, age);
@@ -62,6 +63,23 @@ public class Patients extends Person {
         return patientsList;
     }
 
+    // Create a method to modify a patient's attributes
+    public void modifyPatientByName(String name, String newBloodGroup, String newDisease, int newWeight, int newHeight) {
+        for (Patients patient : patientsList) {
+            if (patient.getPersonName().equalsIgnoreCase(name)) {
+                //Modify the patient's attributes
+                patient.setPatientBloodGroup(newBloodGroup);
+                patient.setPatientDisease(newDisease);
+                patient.setPatientWeight(newWeight);
+                patient.setPatientHeight(newHeight);
+                System.out.println("Patient details modified for: " + name);
+                return;
+            }
+        }
+        System.out.println("Not found a patient with name : " + name);
+        
+    }
+
     public static void removePatientByName(String name) {
         Iterator<Patients> iterator = patientsList.iterator();
         while (iterator.hasNext()) {
@@ -69,7 +87,6 @@ public class Patients extends Person {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 iterator.remove();
                 System.out.println("Delete Patient: " + name);
-                return;
             }
         }
         System.out.println("Not found a patient with name : " + name);
