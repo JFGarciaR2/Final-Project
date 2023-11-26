@@ -41,10 +41,13 @@ public class Patients extends Person {
         return patientHeight;
     }
 
-
     // List to store instances of patients
     private static List<Patients> patientsList = new ArrayList<>();
 
+    // Get the list of patients
+    public static List<Patients> getPatientsList() {
+        return patientsList;
+    }
 
     // Constructor to initialize a patient with data
     public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
@@ -57,12 +60,7 @@ public class Patients extends Person {
         // Add the patient to the list when an instance is created
         patientsList.add(this);
     }
-    
-    // Get the list of patients
-    public static List<Patients> getPatientsList() {
-        return patientsList;
-    }
-
+   
     // Create a method to modify a patient's attributes
     public void modifyPatientByName(String name, String newBloodGroup, String newDisease, int newWeight, int newHeight) {
         for (Patients patient : patientsList) {
@@ -86,7 +84,7 @@ public class Patients extends Person {
             Patients patient = iterator.next();
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 iterator.remove();
-                System.out.println("Delete Patient: " + name);
+                System.out.println("Patient delete: " + name);
             }
         }
         System.out.println("Not found a patient with name : " + name);
