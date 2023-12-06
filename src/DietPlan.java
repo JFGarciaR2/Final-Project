@@ -19,88 +19,78 @@ public class DietPlan {
 
     static DietPlan dietPlan = new DietPlan();
 
-    //Create a method to set the plan's id
+    // Create a methods Getters and Setters
     public void setPlanId(int planId) {
         this.planId = planId;
     }
-    //Create a method to get the plan's id
     public int getPlanId() {
         return planId;
     }
 
-    //Create a method to set the plan's name
     public void setPlanName(String planName) {
         this.planName = planName;
     }
-    //Create a method to get the plan's name
     public String getPlanName() {
         return planName;
     }
 
-    //Create a method to set the plan's description
     public void setPlanDescription(String planDescription) {
         this.planDescription = planDescription;
     }
-    //Create a method to get the plan's description
     public String getPlanDescription() {
         return planDescription;
     }
 
-    //Create a method to set the plan's type
     public void setPlanType(String planType) {
         this.planType = planType;
     }
-    //Create a method to get the plan's type
     public String getPlanType() {
         return planType;
     }
 
-    //Create a method to set the plan's duration
     public void setPlanDuration(String planDuration) {
         this.planDuration = planDuration;
     }
-    //Create a method to get the plan's duration
     public String getPlanDuration() {
         return planDuration;
     }
 
-    //Create a method to set the plan's price
     public void setPlanPrice(String planPrice) {
         this.planPrice = planPrice;
     }
-    //Create a method to get the plan's price
     public String getPlanPrice() {
         return planPrice;
     }
 
-    //Create a method to set the plan's daily calories
     public void setDayliCalories(int dayliCalories) {
         this.dayliCalories = dayliCalories;
     }
-    //Create a method to get the plan's daily calories
     public int getDayliCalories() {
         return dayliCalories;
     }
 
-    //Create a method to set the plan's macronutrient distribution
     public void setMacronutrientDistribution(String macronutrientDistribution) {
         this.macronutrientDistribution = macronutrientDistribution;
     }
-    //Create a method to get the plan's macronutrient distribution
     public String getMacronutrientDistribution() {
         return macronutrientDistribution;
     }
 
-    //Create a method to set the plan's specific recomendations
     public void setSpecificRecomendations(String specificRecomendations) {
         this.specificRecomendations = specificRecomendations;
     }
-    //Create a method to get the plan's specific recomendations
     public String getSpecificRecomendations() {
         return specificRecomendations;
     }
 
-    public DietPlan() {
+
+    public static List<dietPlan> getDietPlanList() {
+        return dietPlanList;
+    }
+
+    //Constructor 
+    public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dayliCalories, String macronutrientDistribution, String specificRecomendations, String patientName, String dietitianName, String mealName) {
+        this.planId = planId;
         this.planName = planName;
         this.planDescription = planDescription;
         this.planType = planType;
@@ -109,36 +99,40 @@ public class DietPlan {
         this.dayliCalories = dayliCalories;
         this.macronutrientDistribution = macronutrientDistribution;
         this.specificRecomendations = specificRecomendations;
-        this.patients = patients;
-        this.dietitian = dietitian;
-        this.meal = meal;
+         // Search the patient by name
+        this.patients = findPatientByName(patientName);
+        // Search the dietitian by name
+        this.dietitian = findDietitianByName(dietitianName);
+        // Search the meal by name
+        this.meal = findMealByName(mealName);
+       
     }
 
-    public void createDietPlan(){
-    //create a dietplan method that creates a dietplan
-
-
-    }
-
-    public void ajustDietPlan(){
-        //create a method that ajusts a dietplan
-
-    }
-
-    static List<String> DietPlanList = new ArrayList<String>(){
-        {
-            DietPlanList.add(dietPlan.getPlanName());
-            DietPlanList.add(dietPlan.getPlanDescription());
-            DietPlanList.add(dietPlan.getPlanType());
-            DietPlanList.add(dietPlan.getPlanDuration());
-            DietPlanList.add(dietPlan.getPlanPrice());
-            DietPlanList.add(String.valueOf(dietPlan.getDayliCalories()));
-            DietPlanList.add(dietPlan.getMacronutrientDistribution());
-            DietPlanList.add(dietPlan.getSpecificRecomendations());
+    // Methods to find the patient, dietitian and Meal by name
+    private Patients findPatientByName(String name) {
+        for (Patients patient : Patients.getPatientsList()) {
+            if (patient.getPersonName().equalsIgnoreCase(name)) {
+                return patient;
+            }
         }
-    };
+        return null;
+    }
 
-    public static List<String> getDietPlanList() {
-        return DietPlanList;
+    private Dietitian findDietitianByName(String name) {
+        for (Dietitian dietitian : Dietitian.getDietitianList()) {
+            if (dietitian.getPersonName().equalsIgnoreCase(name)) {
+                return dietitian;
+            }
+        }
+        return null;
+    }
+
+    private Meal findMealByName(String mealName) {
+         for (Meal meal : meal.getMealList()) {
+            if (meal.getMealName().equalsIgnoreCase(mealName)) {
+                return meal;
+            }
+        }
+        return null;
     }
 }
