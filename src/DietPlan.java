@@ -16,9 +16,6 @@ public class DietPlan {
     private Patients patients;
     private Dietitian dietitian;
     private Meal meal;
-
-    static DietPlan dietPlan = new DietPlan();
-
     // Create a methods Getters and Setters
     public void setPlanId(int planId) {
         this.planId = planId;
@@ -84,7 +81,9 @@ public class DietPlan {
     }
 
 
-    public static List<dietPlan> getDietPlanList() {
+    private static List<DietPlan> dietPlanList = new ArrayList<>();
+
+    public static List<DietPlan> getDietPlanList() {
         return dietPlanList;
     }
 
@@ -106,6 +105,8 @@ public class DietPlan {
         // Search the meal by name
         this.meal = findMealByName(mealName);
        
+        // Add the dietplan to the list when an instance is created
+        dietPlanList.add(this);
     }
 
     // Methods to find the patient, dietitian and Meal by name
