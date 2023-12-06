@@ -72,6 +72,9 @@ public class Meal {
         setMealCalories(calories);
         setMacroNutrients(nutrients);
         setTimeOfDay(time);
+
+        // Add the meal to the list when an instance is created
+        mealsList.add(this);
     }
 
     // List to store instances of meals
