@@ -43,6 +43,7 @@ public class Patients extends Person {
 
     // List to store instances of patients
     private static List<Patients> patientsList = new ArrayList<>();
+    public static Object patients;
 
     // Get the list of patients
     public static List<Patients> getPatientsList() {
