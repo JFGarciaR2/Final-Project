@@ -1,4 +1,7 @@
 //Author: Juan Fernando Garcia Restrepo
+
+import java.util.List;
+
 public class Person {
 
     //Create atributes for the class Person
@@ -36,9 +39,9 @@ public class Person {
         this.personName = personName;
     }
     public String getPersonName() {
-        return personName;
+        return getPersonName(); 
     }
-
+    
     public void setPersonPhone(String personPhone) {
         this.personPhone = personPhone;
     }
@@ -80,5 +83,7 @@ public class Person {
     public String getPersonAddress() {
         return personAddress;
     }
+
+
 
 }

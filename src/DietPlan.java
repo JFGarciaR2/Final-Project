@@ -1,22 +1,23 @@
-//Author: Juan Fernando Garcia Restrepo
+// Author: Juan Fernando Garcia Restrepo
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DietPlan {
-    private int planId = 0;
-    private String planName = "";
-    private String planDescription = "";
-    private String planType = "";
-    private String planDuration = "";
-    private String planPrice = "";
-    private int dayliCalories = 0;
-    private String macronutrientDistribution = "";
-    private String specificRecomendations = "";
-    private Patients patients;
+    private int planId;
+    private String planName;
+    private String planDescription;
+    private String planType;
+    private String planDuration;
+    private String planPrice;
+    private int dailyCalories;
+    private String macronutrientDistribution;
+    private String specificRecommendations;
+    private Patients patient;
     private Dietitian dietitian;
     private Meal meal;
-    // Create a methods Getters and Setters
+
+    // Create methods Getters and Setters
     public void setPlanId(int planId) {
         this.planId = planId;
     }
@@ -60,10 +61,10 @@ public class DietPlan {
     }
 
     public void setDayliCalories(int dayliCalories) {
-        this.dayliCalories = dayliCalories;
+        this.dailyCalories = dayliCalories;
     }
     public int getDayliCalories() {
-        return dayliCalories;
+        return dailyCalories;
     }
 
     public void setMacronutrientDistribution(String macronutrientDistribution) {
@@ -74,44 +75,56 @@ public class DietPlan {
     }
 
     public void setSpecificRecomendations(String specificRecomendations) {
-        this.specificRecomendations = specificRecomendations;
+        this.specificRecommendations = specificRecomendations;
     }
     public String getSpecificRecomendations() {
-        return specificRecomendations;
+        return specificRecommendations;
     }
 
+    public Patients getPatient() {
+        return patient;
+    }
 
-    private static List<DietPlan> dietPlanList = new ArrayList<>();
+    public Dietitian getDietitian() {
+        return dietitian;
+    }
 
-    public static List<DietPlan> getDietPlanList() {
+    public Meal getMeal() {
+        return meal;
+    }
+
+    // List to store instances of diet plans
+    private List<DietPlan> dietPlanList = new ArrayList<>();
+
+    public List<DietPlan> getDietPlanList() {
         return dietPlanList;
     }
 
-    //Constructor 
-    public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dayliCalories, String macronutrientDistribution, String specificRecomendations, String patientName, String dietitianName, String mealName) {
+    // Constructor 
+    public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dailyCalories, String macronutrientDistribution, String specificRecommendations, String patientName, String dietitianName, String mealName) {
         this.planId = planId;
         this.planName = planName;
         this.planDescription = planDescription;
         this.planType = planType;
         this.planDuration = planDuration;
         this.planPrice = planPrice;
-        this.dayliCalories = dayliCalories;
+        this.dailyCalories = dailyCalories;
         this.macronutrientDistribution = macronutrientDistribution;
-        this.specificRecomendations = specificRecomendations;
-         // Search the patient by name
-        this.patients = findPatientByName(patientName);
+        this.specificRecommendations = specificRecommendations;
+        // Search the patient by name
+        this.patient = findPatientByName(patientName);
         // Search the dietitian by name
         this.dietitian = findDietitianByName(dietitianName);
         // Search the meal by name
         this.meal = findMealByName(mealName);
-       
-        // Add the dietplan to the list when an instance is created
+
+        // Add the diet plan to the list when an instance is created
         dietPlanList.add(this);
     }
 
-    // Methods to find the patient, dietitian and Meal by name
+    // Methods to find the patient, dietitian, and meal by name
     private Patients findPatientByName(String name) {
-        for (Patients patient : Patients.getPatientsList()) {
+        for (Patients patient : new Patients(dailyCalories, name, name, name, name, name, name, dailyCalories, name, name, dailyCalories, dailyCalories).getPatientsList()) {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 return patient;
             }
@@ -120,7 +133,7 @@ public class DietPlan {
     }
 
     private Dietitian findDietitianByName(String name) {
-        for (Dietitian dietitian : Dietitian.getDietitianList()) {
+        for (Dietitian dietitian : new Dietitian(dailyCalories, name, name, name, name, name, name, dailyCalories, name).getDietitianList()) {
             if (dietitian.getPersonName().equalsIgnoreCase(name)) {
                 return dietitian;
             }
@@ -129,11 +142,13 @@ public class DietPlan {
     }
 
     private Meal findMealByName(String mealName) {
-         for (Meal meal : Meal.getMealList()) {
+        for (Meal meal : new Meal(dailyCalories, mealName, mealName, mealName, dailyCalories, mealName, mealName).getMealList()) {
             if (meal.getMealName().equalsIgnoreCase(mealName)) {
                 return meal;
             }
         }
         return null;
     }
+
+    
 }

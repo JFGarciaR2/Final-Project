@@ -1,8 +1,8 @@
 //Author: Juan Fernando Garcia Restrepo
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 public class Patients extends Person {
 
@@ -12,7 +12,7 @@ public class Patients extends Person {
     private int patientWeight = 0;
     private int patientHeight = 0;
 
-    // Create a methods Setters and Getters
+     // Create a methods Setters and Getters
     public void setPatientBloodGroup(String patientBloodGroup) {
         this.patientBloodGroup = patientBloodGroup;
     }
@@ -42,13 +42,7 @@ public class Patients extends Person {
     }
 
     // List to store instances of patients
-    private static List<Patients> patientsList = new ArrayList<>();
-    public static Object patients;
-
-    // Get the list of patients
-    public static List<Patients> getPatientsList() {
-        return patientsList;
-    }
+    private List<Patients> patientsList = new ArrayList<>();
 
     // Constructor to initialize a patient with data
     public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
@@ -61,12 +55,12 @@ public class Patients extends Person {
         // Add the patient to the list when an instance is created
         patientsList.add(this);
     }
-   
+
     // Create a method to modify a patient's attributes
     public void modifyPatientByName(String name, String newBloodGroup, String newDisease, int newWeight, int newHeight) {
         for (Patients patient : patientsList) {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
-                //Modify the patient's attributes
+                // Modify the patient's attributes
                 patient.setPatientBloodGroup(newBloodGroup);
                 patient.setPatientDisease(newDisease);
                 patient.setPatientWeight(newWeight);
@@ -75,20 +69,26 @@ public class Patients extends Person {
                 return;
             }
         }
-        System.out.println("Not found a patient with name : " + name);
-        
+        System.out.println("Not found a patient with name: " + name);
     }
 
-    public static void removePatientByName(String name) {
+    // Method to remove a patient by name
+    public boolean removePatientByName(String name) {
         Iterator<Patients> iterator = patientsList.iterator();
         while (iterator.hasNext()) {
             Patients patient = iterator.next();
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 iterator.remove();
-                System.out.println("Patient delete: " + name);
+                System.out.println("Patient deleted: " + name);
+                return true; // Successful deletion
             }
         }
-        System.out.println("Not found a patient with name : " + name);
+        System.out.println("Not found a patient with name: " + name);
+        return false; // Deletion unsuccessful
     }
 
+    // Get the list of patients
+    public List<Patients> getPatientsList() {
+        return patientsList;
+    }
 }
