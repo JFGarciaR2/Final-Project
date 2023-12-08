@@ -44,7 +44,7 @@ public class Dietitian extends Person {
         }
         System.out.println("Not found a patient with name : " + name);
     }
-
+    
     public static void removeDietitianByName(String name) {
         Iterator<Dietitian> iterator = dietitianList.iterator();
         while (iterator.hasNext()) {

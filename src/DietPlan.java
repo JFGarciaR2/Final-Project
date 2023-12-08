@@ -129,7 +129,7 @@ public class DietPlan {
     }
 
     private Meal findMealByName(String mealName) {
-         for (Meal meal : meal.getMealList()) {
+         for (Meal meal : Meal.getMealList()) {
             if (meal.getMealName().equalsIgnoreCase(mealName)) {
                 return meal;
             }
