@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Dietitian extends Person {
     private String dietitianSpeciality = "";
@@ -21,11 +22,41 @@ public class Dietitian extends Person {
     // Constructor to initialize a dietitian with data
     public Dietitian(int personId, String personName, String personPhone, String personEmail, String personGender,
             String personAddress, String personOccupation, int age, String dietitianSpeciality) {
-        super(personId, personName, personPhone, personEmail, personGender, personAddress, personOccupation, age);
+        super(personId, personName, personPhone, personEmail, personGender, personAddress, age);
         setDietitianSpeciality(dietitianSpeciality);
+    }
 
-        // Add the dietitian to the list when an instance is created
-        dietitianList.add(this);
+     // List to store instances of patients
+    public static ArrayList<Dietitian> dietitianList(Scanner sc){
+        ArrayList<Dietitian> dList = new ArrayList<>();
+        Dietitian dietitian = new Dietitian(0, "", "", "", "", "", "", 0, "");
+        
+        do{
+            System.out.println("Enter the ID of the dietitian: ");
+            dietitian.setPersonId(sc.nextInt());
+
+            if(dietitian.getPersonId() != 0){
+                System.out.println("Enter the name of the dietitian: ");
+                dietitian.setPersonName(sc.next());
+                System.out.println("Enter the phone of the dietitian: ");
+                dietitian.setPersonPhone(sc.next());
+                System.out.println("Enter the email of the dietitian: ");
+                dietitian.setPersonEmail(sc.next());
+                System.out.println("Enter the gender of the dietitian: ");
+                dietitian.setPersonGender(sc.next());
+                System.out.println("Enter the address of the dietitian: ");
+                dietitian.setPersonAddress(sc.next());
+                System.out.println("Enter the age of the dietitian: ");
+                dietitian.setPersonAge(sc.nextInt());
+                System.out.println("Enter the speciality of the dietitian: ");
+                dietitian.setDietitianSpeciality(sc.next());
+
+                //Add the dietitian to the list when an instance is created
+                dList.add(dietitian);
+            }
+
+        } while(dietitian.getPersonId() == 0);
+        return dList;
     }
 
     // List to store instances of dietitians

@@ -1,8 +1,12 @@
 //Author: Juan Fernando Garcia Restrepo
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Patients extends Person {
 
@@ -11,54 +15,95 @@ public class Patients extends Person {
     private String patientDisease = "";
     private int patientWeight = 0;
     private int patientHeight = 0;
+    Scanner scanner = new Scanner(System.in);
 
-     // Create a methods Setters and Getters
-    public void setPatientBloodGroup(String patientBloodGroup) {
+    // Create a methods Setters and Getters
+    public  void setPatientBloodGroup(String patientBloodGroup) {
         this.patientBloodGroup = patientBloodGroup;
     }
     public String getPatientBloodGroup() {
         return patientBloodGroup;
     }
 
-    public void setPatientDisease(String patientDisease) {
+    public  void setPatientDisease(String patientDisease) {
         this.patientDisease = patientDisease;
     }
     public String getPatientDisease() {
         return patientDisease;
     }
 
-    public void setPatientWeight(int patientWeight) {
+    public  void setPatientWeight(int patientWeight) {
         this.patientWeight = patientWeight;
     }
     public int getPatientWeight() {
         return patientWeight;
     }
 
-    public void setPatientHeight(int patientHeight) {
+    public  void setPatientHeight(int patientHeight) {
         this.patientHeight = patientHeight;
     }
     public int getPatientHeight() {
         return patientHeight;
     }
 
-    // List to store instances of patients
-    private List<Patients> patientsList = new ArrayList<>();
-
     // Constructor to initialize a patient with data
     public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
-        super(personId, personName, personPhone, personEmail, personGender, personAddress, personOccupation, age);
+        super(personId, personName, personPhone, personEmail, personGender, personAddress, age);
         setPatientBloodGroup(patientBloodGroup);
         setPatientDisease(patientDisease);
         setPatientWeight(patientWeight);
         setPatientHeight(patientHeight);
+    }
 
-        // Add the patient to the list when an instance is created
-        patientsList.add(this);
+    // List to store instances of patients
+    public static ArrayList<Patients> patientsList(Scanner sc){
+        ArrayList<Patients> pList = new ArrayList<>();
+        Patients patient = new Patients(0, "", "", "", "", "", "", 0, "", "", 0, 0);
+        
+        do{
+            System.out.println("Enter the ID of the patient: ");
+            patient.setPersonId(sc.nextInt());
+
+            if(patient.getPersonId() != 0){
+                System.out.println("Enter the name of the patient: ");
+                patient.setPersonName(sc.next());
+                System.out.println("Enter the phone of the patient: ");
+                patient.setPersonPhone(sc.next());
+                System.out.println("Enter the email of the patient: ");
+                patient.setPersonEmail(sc.next());
+                System.out.println("Enter the patient Gender");
+                patient.setPersonGender(sc.next());
+                System.out.println("Enter the patient Address");
+                patient.setPersonAddress(sc.next());
+                System.out.println("Enter the patient Age");
+                patient.setPersonAge(sc.nextInt());
+                System.out.println("Enter the patient Blood Group");
+                patient.setPatientBloodGroup(sc.next());
+                System.out.println("Enter the patient Disease");
+                patient.setPatientDisease(sc.next());
+                System.out.println("Enter the patient Weight");
+                patient.setPatientWeight(sc.nextInt());
+                System.out.println("Enter the patient Height");
+                patient.setPatientHeight(sc.nextInt());
+                // Add the patient to the list when an instance is created
+                pList.add(patient);
+            }
+
+            else{
+                System.out.println("Program Finished");
+            }
+
+        } while(patient.getPersonId() == 0);
+        return pList;
+    }
+
+    public String toCSV() {
+        return getPersonId() + "," + getPersonName() + "," + getPersonPhone() + "," + getPersonEmail() + "," + getPersonGender() + "," + getPersonAddress() + "," + getAge() + "," + getPatientBloodGroup() + "," + getPatientDisease() + "," + getPatientWeight() + "," + getPatientHeight() + "\n";
     }
 
     // Create a method to modify a patient's attributes
     public void modifyPatientByName(String name, String newBloodGroup, String newDisease, int newWeight, int newHeight) {
-        for (Patients patient : patientsList) {
+        for (Patients patient : patientsList(scanner)) {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 // Modify the patient's attributes
                 patient.setPatientBloodGroup(newBloodGroup);
@@ -74,7 +119,7 @@ public class Patients extends Person {
 
     // Method to remove a patient by name
     public boolean removePatientByName(String name) {
-        Iterator<Patients> iterator = patientsList.iterator();
+        Iterator<Patients> iterator = patientsList(scanner).iterator();
         while (iterator.hasNext()) {
             Patients patient = iterator.next();
             if (patient.getPersonName().equalsIgnoreCase(name)) {
@@ -88,7 +133,12 @@ public class Patients extends Person {
     }
 
     // Get the list of patients
-    public List<Patients> getPatientsList() {
-        return patientsList;
+    public ArrayList<Patients> getPatientsList() {
+        return patientsList(scanner);
     }
+
+  
 }
+
+
+    
