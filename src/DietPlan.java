@@ -1,7 +1,6 @@
 // Author: Juan Fernando Garcia Restrepo
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Iterator;
 
@@ -65,7 +64,7 @@ public class DietPlan {
     }
 
     public void setDayliCalories(int dayliCalories) {
-        this.dailyCalories = dayliCalories;
+        DietPlan.dailyCalories = dayliCalories;
     }
     public int getDayliCalories() {
         return dailyCalories;
@@ -120,7 +119,7 @@ public class DietPlan {
         this.planType = planType;
         this.planDuration = planDuration;
         this.planPrice = planPrice;
-        this.dailyCalories = dailyCalories;
+        DietPlan.dailyCalories = dailyCalories;
         this.macronutrientDistribution = macronutrientDistribution;
         this.specificRecommendations = specificRecommendations;
         // Search the patient by name
@@ -132,8 +131,9 @@ public class DietPlan {
 
     }
 
-    public static ArrayList<DietPlan> dietPlanList(Scanner sc){
-        ArrayList<DietPlan> dietPlanList = new ArrayList<DietPlan>();
+    public static ArrayList<DietPlan> dietPlanList(Scanner scanner){
+
+        ArrayList<DietPlan> dpList = new ArrayList<DietPlan>();
         
         int planId;
         String planName;
@@ -153,33 +153,33 @@ public class DietPlan {
             DietPlan dietPlan = new DietPlan(0, "", "", "", "", "", 0, "", "", "", "", "");
         
             System.out.println("id: ");
-            planId = sc.nextInt();
+            planId = scanner.nextInt();
         
             if (planId != 0) {
-                sc.nextLine();
+                scanner.nextLine();
                 System.out.println("name: ");
-                planName = sc.nextLine();
+                planName = scanner.nextLine();
                 System.out.println("description: ");
-                planDescription = sc.nextLine();
+                planDescription = scanner.nextLine();
                 System.out.println("type: ");
-                planType = sc.nextLine();
+                planType = scanner.nextLine();
                 System.out.println("duration: ");
-                planDuration = sc.nextLine();
+                planDuration = scanner.nextLine();
                 System.out.println("price: ");
-                planPrice = sc.nextLine();
+                planPrice = scanner.nextLine();
                 System.out.println("daily calories: ");
-                dailyCalories = sc.nextInt();
-                sc.nextLine();
+                dailyCalories = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("macronutrient distribution: ");
-                macronutrientDistribution = sc.nextLine();
+                macronutrientDistribution = scanner.nextLine();
                 System.out.println("specific recommendations: ");
-                specificRecommendations = sc.nextLine();
+                specificRecommendations = scanner.nextLine();
                 System.out.println("patient name: ");
-                patientName = sc.nextLine();
+                patientName = scanner.nextLine();
                 System.out.println("dietitian name: ");
-                dietitianName = sc.nextLine();
+                dietitianName = scanner.nextLine();
                 System.out.println("meal name: ");
-                mealName = sc.nextLine();
+                mealName = scanner.nextLine();
         
                 // Set the values to the diet plan object
                 dietPlan.setPlanId(planId);
@@ -205,14 +205,15 @@ public class DietPlan {
                 dietPlan.setMeal(foundMeal);
         
                 // Add the diet plan to the list when an instance is created
-                dietPlanList.add(dietPlan);
+                dpList.add(dietPlan);
         
                 System.out.println("Diet plan added successfully!");
                 System.out.println("Enter 0 to exit or any other number to continue: ");
             }   
         } while (planId != 0);
-        return dietPlanList;
-    
+
+        return dpList;
+
     }
 
     @Override

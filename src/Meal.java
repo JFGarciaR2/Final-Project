@@ -16,7 +16,7 @@ public class Meal {
 
     // Methods Setters and Getters
     public void setMealId(int mealId) {
-        this.mealId = mealId;
+        Meal.mealId = mealId;
     }
 
     public int getMealId() {
