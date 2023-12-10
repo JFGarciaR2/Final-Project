@@ -74,6 +74,7 @@ public class Main {
                 switch (option2) {
                     case 1:
                         System.out.println("View Patients");
+
                         //Read from CSV
                         
                         ArrayList<Patients> pList2 = new ArrayList<Patients>();

@@ -26,39 +26,74 @@ public class Dietitian extends Person {
      // List to store instances of patients
     public static ArrayList<Dietitian> dietitianList(Scanner sc){
         ArrayList<Dietitian> dList = new ArrayList<>();
-        Dietitian dietitian = new Dietitian(0, "", "", "", "", "", "", 0, "");
         
-        do{
-            System.out.println("Enter the ID of the dietitian: ");
-            dietitian.setPersonId(sc.nextInt());
+          // Create a new instance of the patient
+          int personId;
+          String personName;
+          String personPhone;
+          String personEmail;
+          String personGender;
+          String personAddress;
+          int personAge;
+        String dietitianSpeciality;
+      
+          do {
+            System.out.println("ID: ");
+            personId = sc.nextInt();
+      
+            Dietitian dietitian = new Dietitian(0, "", "", "", "", "", "", 0, "");
 
-            if(dietitian.getPersonId() != 0){
+            if (personId != 0) {
                 sc.nextLine();
-                System.out.println("Enter the name of the dietitian: ");
-                dietitian.setPersonName(sc.nextLine());
-                System.out.println("Enter the phone of the dietitian: ");
-                dietitian.setPersonPhone(sc.nextLine());
-                System.out.println("Enter the email of the dietitian: ");
-                dietitian.setPersonEmail(sc.nextLine());
-                System.out.println("Enter the gender of the dietitian: ");
-                dietitian.setPersonGender(sc.nextLine());
-                System.out.println("Enter the address of the dietitian: ");
-                dietitian.setPersonAddress(sc.nextLine());
-                System.out.println("Enter the age of the dietitian: ");
-                dietitian.setPersonAge(sc.nextInt());
+                System.out.println("Name: ");
+                personName = sc.nextLine();
+                System.out.println("Phone: ");
+                personPhone = sc.nextLine();
+                System.out.println("Email: ");
+                personEmail = sc.nextLine();
+                System.out.println("Gender: ");
+                personGender = sc.nextLine();
+                System.out.println("Address: ");
+                personAddress = sc.nextLine();
+                System.out.println("Age: ");
+                personAge = sc.nextInt();
                 sc.nextLine();
-                System.out.println("Enter the speciality of the dietitian: ");
-                dietitian.setDietitianSpeciality(sc.nextLine());
-                
-
-                //Add the dietitian to the list when an instance is created
+                System.out.println("Speciality: ");
+                dietitianSpeciality = sc.nextLine();
+    
+                // Set the attributes of the dietitian
+                dietitian.setPersonId(personId);
+                dietitian.setPersonName(personName);
+                dietitian.setPersonPhone(personPhone);
+                dietitian.setPersonEmail(personEmail);
+                dietitian.setPersonGender(personGender);
+                dietitian.setPersonAddress(personAddress);
+                dietitian.setPersonAge(personAge);
+                dietitian.setDietitianSpeciality(dietitianSpeciality);
+            
+                // Add the patient to the list when an instance is created
                 dList.add(dietitian);
-            }
-
-        } while(dietitian.getPersonId() == 0);
-        return dList;
+    
+                System.out.println("Dietitian created Succesfully!");
+                System.out.println("Enter 0 to exit or any other number to continue: ");
+              }
+          } while (personId != 0);
+      
+          return dList;
+      }
+    @Override
+    public String toString() {
+        return "Dietitians{" +
+                "personId=" + getPersonId() +
+                ", personName='" + getPersonName() + '\'' +
+                ", personPhone='" + getPersonPhone() + '\'' +
+                ", personEmail='" + getPersonEmail() + '\'' +
+                ", personGender='" + getPersonGender() + '\'' +
+                ", personAddress='" + getPersonAddress() + '\'' +
+                ", age=" + getAge() +
+                ", dietitianSpeciality='" + getDietitianSpeciality() + '\'' +
+                '}';
     }
-
     // Method to write CSV
     public String toCSV() {
         return getPersonId() + ";" + getPersonName() + ";" + getPersonPhone() + ";" + getPersonEmail() + ";" + getPersonGender() + ";" + getPersonAddress() + ";" + getAge() + ";" + getDietitianSpeciality() + "\n";

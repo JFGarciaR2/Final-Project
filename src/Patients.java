@@ -55,52 +55,95 @@ public class Patients extends Person {
         setPatientHeight(patientHeight);
     }
 
-    // List to store instances of patients
-    public static ArrayList<Patients> patientsList(Scanner sc){
+    public static ArrayList<Patients> patientsList(Scanner sc) {
         ArrayList<Patients> pList = new ArrayList<>();
-        Patients patient = new Patients(0, "", "", "", "", "", 0, "", "", 0, 0);
-        
-        do{
-            System.out.println("Enter the ID of the patient: ");
-            patient.setPersonId(sc.nextInt());
-
-            if(patient.getPersonId() != 0){
+    
+        // Create a new instance of the patient
+        int personId;
+        String personName;
+        String personPhone;
+        String personEmail;
+        String personGender;
+        String personAddress;
+        int personAge;
+        String patientBloodGroup;
+        String patientDisease;
+        int patientWeight;
+        int patientHeight;
+    
+        do {
+            // Create a new instance of the patient
+            Patients patient = new Patients(0, "", "", "", "", "", 0, "", "", 0, 0);
+    
+            System.out.println("ID: ");
+            personId = sc.nextInt();
+    
+            if (personId != 0) {
                 sc.nextLine();
-                System.out.println("Enter the name of the patient: ");
-                patient.setPersonName(sc.nextLine());
-                System.out.println("Enter the phone of the patient: ");
-                patient.setPersonPhone(sc.nextLine());
-                System.out.println("Enter the email of the patient: ");
-                patient.setPersonEmail(sc.nextLine());
-                System.out.println("Enter the patient Gender");
-                patient.setPersonGender(sc.nextLine());
-                System.out.println("Enter the patient Address");
-                patient.setPersonAddress(sc.nextLine());
-                System.out.println("Enter the patient Age");
-                patient.setPersonAge(sc.nextInt());
+                System.out.println("Name: ");
+                personName = sc.nextLine();
+                System.out.println("Phone: ");
+                personPhone = sc.nextLine();
+                System.out.println("Email: ");
+                personEmail = sc.nextLine();
+                System.out.println("Gender: ");
+                personGender = sc.nextLine();
+                System.out.println("Address: ");
+                personAddress = sc.nextLine();
+                System.out.println("Age: ");
+                personAge = sc.nextInt();
                 sc.nextLine();
-                System.out.println("Enter the patient Blood Group");
-                patient.setPatientBloodGroup(sc.nextLine());
-                System.out.println("Enter the patient Disease");
-                patient.setPatientDisease(sc.nextLine());
-                System.out.println("Enter the patient Weight");
-                patient.setPatientWeight(sc.nextInt());
+                System.out.println("Blood Group: ");
+                patientBloodGroup = sc.nextLine();
+                System.out.println("Disease: ");
+                patientDisease = sc.nextLine();
+                System.out.println("Weight: ");
+                patientWeight = sc.nextInt();
                 sc.nextLine();
-                System.out.println("Enter the patient Height");
-                patient.setPatientHeight(sc.nextInt());
+                System.out.println("Height: ");
+                patientHeight = sc.nextInt();
                 sc.nextLine();
+    
+                // Set the attributes of the patient
+                patient.setPersonId(personId);
+                patient.setPersonName(personName);
+                patient.setPersonPhone(personPhone);
+                patient.setPersonEmail(personEmail);
+                patient.setPersonGender(personGender);
+                patient.setPersonAddress(personAddress);
+                patient.setPersonAge(personAge);
+                patient.setPatientBloodGroup(patientBloodGroup);
+                patient.setPatientDisease(patientDisease);
+                patient.setPatientWeight(patientWeight);
+                patient.setPatientHeight(patientHeight);
+    
                 // Add the patient to the list when an instance is created
                 pList.add(patient);
+    
+                System.out.println("Patient created Succesfully!");
+                System.out.println("Enter 0 to exit or any other number to continue: ");
             }
-
-            else{
-                System.out.println("Program Finished");
-            }
-
-        } while(patient.getPersonId() == 0);
+        } while (personId != 0);
+    
         return pList;
     }
-
+    
+        @Override
+        public String toString() {
+            return "Patients{" +
+                    "personId=" + getPersonId() +
+                    ", personName='" + getPersonName() + '\'' +
+                    ", personPhone='" + getPersonPhone() + '\'' +
+                    ", personEmail='" + getPersonEmail() + '\'' +
+                    ", personGender='" + getPersonGender() + '\'' +
+                    ", personAddress='" + getPersonAddress() + '\'' +
+                    ", age=" + getAge() +
+                    ", patientBloodGroup='" + getPatientBloodGroup() + '\'' +
+                    ", patientDisease='" + getPatientDisease() + '\'' +
+                    ", patientWeight=" + getPatientWeight() +
+                    ", patientHeight=" + getPatientHeight() +
+                    '}';
+        }
     // Method to write to CSV
     public String toCSV() {
         return getPersonId() + ";" + getPersonName() + ";" + getPersonPhone() + ";" + getPersonEmail() + ";" + getPersonGender() + ";" + getPersonAddress() + ";" + getAge() + ";" + getPatientBloodGroup() + ";" + getPatientDisease() + ";" + getPatientWeight() + ";" + getPatientHeight() + "\n";
