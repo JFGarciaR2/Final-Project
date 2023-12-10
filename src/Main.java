@@ -20,6 +20,7 @@ public class Main {
         int option = scanner.nextInt();
         switch (option) {
             case 1:
+                //Write to CSV
                 System.out.println("Patients");
 
                 ArrayList<Patients> pList = Patients.patientsList(scanner);
@@ -33,10 +34,65 @@ public class Main {
                     System.out.println("Error");
                 } 
 
+                //Read from CSV
+                
+                ArrayList<Patients> pList2 = new ArrayList<Patients>();
+
+                Patients p;
+                String[] dataP;
+
+                try (Scanner sc =  new Scanner(new File("patients.csv"))){
+                    while (sc.hasNextLine()) {
+                        dataP = sc.nextLine().split(";");
+                        p = new Patients(option, dataP[0], dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], option, dataP[6], null, option, option);
+                        pList2.add(p);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error");
+                }
+
+                for (Patients p2 : pList2) {
+                    System.out.println(p2);
+                }
+                
                 break;
+
             case 2:
+                //Write to CSV
                 System.out.println("Dietitians");
+
+                ArrayList<Dietitian> dList = Dietitian.dietitianList(scanner);
+
+                File f2 = new File("dietitians.csv");
+                try (FileWriter fw = new FileWriter(f2)) {
+                    for (Dietitian d : dList) {
+                    fw.write(d.toCSV());
+                        }
+                } catch (IOException e) {
+                    System.out.println("Error");
+                }
+
+                //Read from CSV
+                  ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
+
+                Dietitian d2;
+                String[] dataD;
+
+                try (Scanner sc =  new Scanner(new File("patients.csv"))){
+                    while (sc.hasNextLine()) {
+                        dataD = sc.nextLine().split(";");
+                        p = new Patients(option, dataD[0], dataD[1], dataD[2], dataD[3], dataD[4], dataD[5], option, dataD[6], null, option, option);
+                        dList2.add(d2);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error");
+                }
+
+                for (Dietitian d2 : dList2) {
+                    System.out.println(d2);
+                }
                 break;
+
             case 3:
                 System.out.println("Diet Plans");
                 break;

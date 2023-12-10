@@ -59,6 +59,11 @@ public class Dietitian extends Person {
         return dList;
     }
 
+    // Method to write CSV
+    public String toCSV() {
+        return getPersonId() + ";" + getPersonName() + ";" + getPersonPhone() + ";" + getPersonEmail() + ";" + getPersonGender() + ";" + getPersonAddress() + ";" + getAge() + ";" + getDietitianSpeciality() + "\n";
+    }
+
     // List to store instances of dietitians
     private  List<Dietitian> dietitianList = new ArrayList<>();
 

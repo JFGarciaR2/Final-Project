@@ -97,6 +97,7 @@ public class Patients extends Person {
         return pList;
     }
 
+    // Method to write to CSV
     public String toCSV() {
         return getPersonId() + "," + getPersonName() + "," + getPersonPhone() + "," + getPersonEmail() + "," + getPersonGender() + "," + getPersonAddress() + "," + getAge() + "," + getPatientBloodGroup() + "," + getPatientDisease() + "," + getPatientWeight() + "," + getPatientHeight() + "\n";
     }
