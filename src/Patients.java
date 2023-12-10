@@ -11,7 +11,7 @@ public class Patients extends Person {
     private String patientDisease = "";
     private int patientWeight = 0;
     private int patientHeight = 0;
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     // Create a methods Setters and Getters
     public  void setPatientBloodGroup(String patientBloodGroup) {
@@ -146,7 +146,7 @@ public class Patients extends Person {
     }
 
     // Create a method to modify a patient's attributes
-    public void modifyPatientByName(String name, String newBloodGroup, String newDisease, int newWeight, int newHeight) {
+    public static void modifyPatientByName(String name, String newBloodGroup, String newDisease, int newWeight, int newHeight) {
         for (Patients patient : patientsList(scanner)) {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 // Modify the patient's attributes
@@ -162,7 +162,7 @@ public class Patients extends Person {
     }
 
     // Method to remove a patient by name
-    public boolean removePatientByName(String name) {
+    public static boolean removePatientByName(String name) {
         Iterator<Patients> iterator = patientsList(scanner).iterator();
         while (iterator.hasNext()) {
             Patients patient = iterator.next();
