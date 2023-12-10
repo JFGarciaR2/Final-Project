@@ -123,10 +123,11 @@ public class Main {
                         Dietitian d;
                         String[] dataD;
 
-                        try (Scanner sc = new Scanner(new File("patients.csv"))) {
+                        try (Scanner sc = new Scanner(new File("dietitians.csv"))) {
                             while (sc.hasNextLine()) {
                                 dataD = sc.nextLine().split(";");
-                                if (dataD.length == 9) {
+
+                                if (dataD.length == 8) {
                                     d = new Dietitian(
                                     Integer.parseInt(dataD[0]),
                                     dataD[1],
@@ -134,15 +135,15 @@ public class Main {
                                     dataD[3],
                                     dataD[4],
                                     dataD[5],
-                                    dataD[6],
-                                    Integer.parseInt(dataD[7]),
-                                    dataD[8]
+                                    Integer.parseInt(dataD[6]),
+                                    dataD[7]
                                     );
                                     dList2.add(d);
-                                    }
-                                } 
+
+                                }
+                            } 
                         } catch (IOException e) {
-                            System.out.println("Error al leer el archivo CSV");
+                            System.out.println("Error to read the file CSV");
                         }
 
                         for (Dietitian d2 : dList2) {

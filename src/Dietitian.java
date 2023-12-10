@@ -18,7 +18,7 @@ public class Dietitian extends Person {
 
     // Constructor to initialize a dietitian with data
     public Dietitian(int personId, String personName, String personPhone, String personEmail, String personGender,
-            String personAddress, String personOccupation, int age, String dietitianSpeciality) {
+            String personAddress, int age, String dietitianSpeciality) {
         super(personId, personName, personPhone, personEmail, personGender, personAddress, age);
         setDietitianSpeciality(dietitianSpeciality);
     }
@@ -41,7 +41,7 @@ public class Dietitian extends Person {
             System.out.println("ID: ");
             personId = sc.nextInt();
       
-            Dietitian dietitian = new Dietitian(0, "", "", "", "", "", "", 0, "");
+            Dietitian dietitian = new Dietitian(0, "", "", "", "", "", 0, "");
 
             if (personId != 0) {
                 sc.nextLine();

@@ -133,7 +133,7 @@ public class DietPlan {
     }
 
     private Dietitian findDietitianByName(String name) {
-        for (Dietitian dietitian : new Dietitian(dailyCalories, name, name, name, name, name, name, dailyCalories, name).getDietitianList()) {
+        for (Dietitian dietitian : new Dietitian(dailyCalories, name, name, name, name, name, dailyCalories, name).getDietitianList()) {
             if (dietitian.getPersonName().equalsIgnoreCase(name)) {
                 return dietitian;
             }
