@@ -45,7 +45,7 @@ public class Main {
                 try (Scanner sc =  new Scanner(new File("patients.csv"))){
                     while (sc.hasNextLine()) {
                         dataP = sc.nextLine().split(";");
-                        p = new Patients(option, dataP[0], dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], option, dataP[6], option, option, option, option, option, option, option, option,opt);
+                        p = new Patients(Integer.parseInt(dataP[0]), dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], Integer.parseInt(dataP[6]), dataP[7], dataP[8], Integer.parseInt(dataP[9]), Integer.parseInt(dataP[10]));
                         pList2.add(p);
                     }
                 } catch (IOException e) {
@@ -75,7 +75,7 @@ public class Main {
                 }
 
                 //Read from CSV
-                /*
+                
                 ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
 
                 Dietitian d;
@@ -94,7 +94,7 @@ public class Main {
                 for (Dietitian d2 : dList2) {
                     System.out.println(d2);
                 }
-                */
+
                 break;
 
             case 3:
