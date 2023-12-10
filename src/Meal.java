@@ -2,9 +2,10 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Iterator; 
 
 public class Meal {
-    private int mealId;
+    private static int mealId;
     private String mealName;
     private String mealDescription;
     private String mealType;
@@ -155,53 +156,36 @@ public class Meal {
         return mealId + ";" + mealName + ";" + mealDescription + ";" + mealType + ";" + mealCalories + ";" + macroNutrients + ";" + timeOfDay;
     }
     
-    //Method to update a meal from the list
-    public static void updateMeal(ArrayList<Meal> mealsList, Scanner sc){
-        System.out.println("Enter the meal id to update: ");
-        int mealId = sc.nextInt();
-        sc.nextLine();
-        for (Meal meal : mealsList) {
-            if (meal.getMealId() == mealId) {
-                System.out.println("Enter the meal name: ");
-                String mealName = sc.nextLine();
-                System.out.println("Enter the meal description: ");
-                String mealDescription = sc.nextLine();
-                System.out.println("Enter the meal type: ");
-                String mealType = sc.nextLine();
-                System.out.println("Enter the meal calories: ");
-                int mealCalories = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Enter the meal macro nutrients: ");
-                String macroNutrients = sc.nextLine();
-                System.out.println("Enter the meal time of day: ");
-                String timeOfDay = sc.nextLine();
-
-                // Set the values to the meal object
-                meal.setMealName(mealName);
-                meal.setMealDescription(mealDescription);
-                meal.setMealType(mealType);
-                meal.setMealCalories(mealCalories);
-                meal.setMacroNutrients(macroNutrients);
-                meal.setTimeOfDay(timeOfDay);
-
-                System.out.println("Meal updated successfully!");
-                break;
-            }
-        }
+    //Method to modify a meal from the list
+    public static void modifyMeal(int mealId, String mealName, String mealDescription, String mealType, int mealCalories, String macroNutrients, String timeOfDay){
+       for (Meal meal : mealsList(scanner)) {
+           if (meal.getMealId() == mealId) {
+               meal.setMealName(mealName);
+               meal.setMealDescription(mealDescription);
+               meal.setMealType(mealType);
+               meal.setMealCalories(mealCalories);
+               meal.setMacroNutrients(macroNutrients);
+               meal.setTimeOfDay(timeOfDay);
+               System.out.println("Meal updated successfully!");
+               return;
+           }
+        
+       }
     }
 
     //Method to remove a meal from the list
-    public static void removeMeal(ArrayList<Meal> mealsList, Scanner sc){
-        System.out.println("Enter the meal id to remove: ");
-        int mealId = sc.nextInt();
-        sc.nextLine();
-        for (Meal meal : mealsList) {
+    public static boolean removeMeal(int mealId){
+        Iterator<Meal> iterator = mealsList(scanner).iterator();
+        while (iterator.hasNext()) {
+            Meal meal = iterator.next();
             if (meal.getMealId() == mealId) {
-                mealsList.remove(meal);
+                iterator.remove();
                 System.out.println("Meal removed successfully!");
-                break;
+                return true;
             }
         }
+        System.out.println("Not found a meal with id: " + mealId);
+        return false;
     }
 
     // Get the list of meals
