@@ -100,7 +100,7 @@ public class Dietitian extends Person {
     }
 
     // List to store instances of dietitians
-    private  List<Dietitian> dietitianList = new ArrayList<>();
+    private static  List<Dietitian> dietitianList = new ArrayList<>();
 
     // Get the list of dietitians
     public  List<Dietitian> getDietitianList() {
@@ -113,7 +113,7 @@ public class Dietitian extends Person {
     }
 
     // Create a method to modify a dietitian's attributes
-    public  void modifyDietitianByName(String name, String newSpeciality) {
+    public static  void modifyDietitianByName(String name, String newSpeciality) {
         for (Dietitian dietitian : dietitianList) {
             if (dietitian.getPersonName().equalsIgnoreCase(name)) {
                 // Modify the dietitian's attributes
@@ -126,16 +126,17 @@ public class Dietitian extends Person {
     }
 
     // Remove a dietitian from the list by name
-    public void removeDietitianByName(String name) {
+    public static boolean removeDietitianByName(String name) {
         Iterator<Dietitian> iterator = dietitianList.iterator();
         while (iterator.hasNext()) {
             Dietitian dietitian = iterator.next();
             if (dietitian.getPersonName().equalsIgnoreCase(name)) {
                 iterator.remove();
                 System.out.println("Dietitian deleted: " + name);
-                return;
+                return false;
             }
         }
         System.out.println("Not found a dietitian with name : " + name);
+        return false;
     }
 }

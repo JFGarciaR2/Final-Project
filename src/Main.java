@@ -129,7 +129,7 @@ public class Main {
                                 break;
                         }
                     }
-                    
+                    break;
 
                 case 2:
                 //DIETITIANS
@@ -156,63 +156,10 @@ public class Main {
                                 } catch (IOException e) {
                                     System.out.println("Error");
                                 }
+
                                 break;
-                        
-                            default:
-                                break;
-                        }
-                    }
-                    
-                    
-                    //Write to CSV
-                    System.out.println("Dietitians");
-
-                    ArrayList<Dietitian> dList = Dietitian.dietitianList(scanner);
-
-                    File f2 = new File("dietitians.csv");
-                    try (FileWriter fw = new FileWriter(f2,true)) {
-                        for (Dietitian d : dList) {
-                        fw.write(d.toCSV());
-                            }
-                    } catch (IOException e) {
-                        System.out.println("Error");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println("Diet Plans");
-                    break;
-
-                case 4:
-                    System.out.println("Meals");
-                    break;
-
-                case 5:
-                    /*System.out.println("Other Options");
-                    boolean back = false;
-                    System.out.println("Please enter your option: ");
-                    while(!back){
-                        System.out.println("1. View Patients");
-                        System.out.println("2. View Dietitians");
-                        System.out.println("3. View Diet Plans");
-                        System.out.println("4. View Meals");
-                        System.out.println("5. Other Options");
-                        System.out.println("6. Exit");
-
-                        int option2 = scanner.nextInt();
-                        switch (option2) {
-                            case 1:
-                                System.out.println("View Patients");
-
-                                //Read from CSV
-                                
-                                
-
-                            case 2:
-                                System.out.println("View Dietitians");
-
-                                //Read from CSV
-                                
+                            
+                            case 2: //View Dietitians
                                 ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
 
                                 Dietitian d;
@@ -223,6 +170,7 @@ public class Main {
                                         dataD = sc.nextLine().split(";");
 
                                         if (dataD.length == 8) {
+
                                             d = new Dietitian(
                                             Integer.parseInt(dataD[0]),
                                             dataD[1],
@@ -245,27 +193,53 @@ public class Main {
                                     System.out.println(d2);
                                 }
                                 break;
+                        
+                            case 3: //Modify Dietitian
+                                System.out.println("Enter dietitian name: ");
+                                String dietitianName = scanner.next();
+                
+                                // Collect other information you want to modify
+                                System.out.println("Enter new speciality: ");
+                                String newSpeciality = scanner.next();
+                
+                                // Call the method to modify dietitian attributes
+                                Dietitian.modifyDietitianByName(dietitianName, newSpeciality);
+                                break;
+                            
+                            case 4: //Delete Dietitian
+                                System.out.println("Enter dietitian name to delete: ");
+                                String dietitianNameToDelete = scanner.next();
 
-                            case 3:
-                                System.out.println("Viwe Diet Plans");
+                                // Call the method to remove a dietitian by name
+                                boolean deletionResult = Dietitian.removeDietitianByName(dietitianNameToDelete);
+                                if (deletionResult) {
+                                    System.out.println("Dietitian successfully deleted.");
+                                } else {
+                                    System.out.println("Dietitian not found.");
+                                }
+                            
+                            case 5: //Back
+                                back2 = true;
                                 break;
-                            case 4:
-                                System.out.println("View Meals");
-                                break;
-                            case 5:
-                                System.out.println("Other Options");
-                                break;
-                            case 6:
-                                System.out.println("Exit");
-                                back = true;
-                                break;
+
                             default:
                                 System.out.println("Invalid option");
                                 break;
                         }
-                        break;
                     }
-                */        
+                    break;
+                    
+                case 3:
+                    System.out.println("Diet Plans");
+                    break;
+
+                case 4:
+                    System.out.println("Meals");
+                    break;
+
+                case 5:
+                    System.out.println("Other Options");
+                    break;  
                 case 6:
                     System.out.println("Exit");
                     salir = true;
