@@ -103,7 +103,7 @@ public class Patients extends Person {
 
     // Method to write to CSV
     public String toCSV() {
-        return getPersonId() + "," + getPersonName() + "," + getPersonPhone() + "," + getPersonEmail() + "," + getPersonGender() + "," + getPersonAddress() + "," + getAge() + "," + getPatientBloodGroup() + "," + getPatientDisease() + "," + getPatientWeight() + "," + getPatientHeight() + "\n";
+        return getPersonId() + ";" + getPersonName() + ";" + getPersonPhone() + ";" + getPersonEmail() + ";" + getPersonGender() + ";" + getPersonAddress() + ";" + getAge() + ";" + getPatientBloodGroup() + ";" + getPatientDisease() + ";" + getPatientWeight() + ";" + getPatientHeight() + "\n";
     }
 
     // Create a method to modify a patient's attributes

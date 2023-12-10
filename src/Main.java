@@ -34,27 +34,6 @@ public class Main {
                 } catch (IOException e) {
                     System.out.println("Error");
                 } 
-
-                //Read from CSV
-                
-                ArrayList<Patients> pList2 = new ArrayList<Patients>();
-
-                Patients p;
-                String[] dataP;
-
-                try (Scanner sc =  new Scanner(new File("patients.csv"))){
-                    while (sc.hasNextLine()) {
-                        dataP = sc.nextLine().split(";");
-                        p = new Patients(Integer.parseInt(dataP[0]), dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], Integer.parseInt(dataP[6]), dataP[7], dataP[8], Integer.parseInt(dataP[9]), Integer.parseInt(dataP[10]));
-                        pList2.add(p);
-                    }
-                } catch (IOException e) {
-                    System.out.println("Error");
-                }
-
-                for (Patients p2 : pList2) {
-                    System.out.println(p2);
-                }
                 
                 break;
 
@@ -73,28 +52,6 @@ public class Main {
                 } catch (IOException e) {
                     System.out.println("Error");
                 }
-
-                //Read from CSV
-                
-                ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
-
-                Dietitian d;
-                String[] dataD;
-
-                try (Scanner sc =  new Scanner(new File("patients.csv"))){
-                    while (sc.hasNextLine()) {
-                        dataD = sc.nextLine().split(";");
-                        d = new Dietitian(option, dataD[0], dataD[1], dataD[2], dataD[3], dataD[4], dataD[5], option, dataD[6]);
-                        dList2.add(d);
-                    }
-                } catch (IOException e) {
-                    System.out.println("Error");
-                }
-
-                for (Dietitian d2 : dList2) {
-                    System.out.println(d2);
-                }
-
                 break;
 
             case 3:
@@ -105,6 +62,81 @@ public class Main {
                 break;
             case 5:
                 System.out.println("Other Options");
+                System.out.println("Please enter your option: ");
+                System.out.println("1. View Patients");
+                System.out.println("2. View Dietitians");
+                System.out.println("3. View Diet Plans");
+                System.out.println("4. View Meals");
+                System.out.println("5. Other Options");
+                System.out.println("6. Exit");
+
+                int option2 = scanner.nextInt();
+                switch (option2) {
+                    case 1:
+                        System.out.println("View Patients");
+                        //Read from CSV
+                        
+                        ArrayList<Patients> pList2 = new ArrayList<Patients>();
+
+                        Patients p;
+                        String[] dataP;
+
+                        try (Scanner sc =  new Scanner(new File("patients.csv"))){
+                            while (sc.hasNextLine()) {
+                                dataP = sc.nextLine().split(";");
+                                p = new Patients(Integer.parseInt(dataP[0]), dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], Integer.parseInt(dataP[6]), dataP[7], dataP[8], Integer.parseInt(dataP[9]), Integer.parseInt(dataP[10]));
+                                pList2.add(p);
+                            }
+                        } catch (IOException e) {
+                            System.out.println("Error");
+                        }
+
+                        for (Patients p2 : pList2) {
+                            System.out.println(p2);
+                        }
+                        break;
+
+                    case 2:
+                        System.out.println("View Dietitians");
+
+                        //Read from CSV
+                        
+                        ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
+
+                        Dietitian d;
+                        String[] dataD;
+
+                        try (Scanner sc =  new Scanner(new File("patients.csv"))){
+                            while (sc.hasNextLine()) {
+                                dataD = sc.nextLine().split(";");
+                                d = new Dietitian(option, dataD[0], dataD[1], dataD[2], dataD[3], dataD[4], dataD[5], option, dataD[6]);
+                                dList2.add(d);
+                            }
+                        } catch (IOException e) {
+                            System.out.println("Error");
+                        }
+
+                        for (Dietitian d2 : dList2) {
+                            System.out.println(d2);
+                        }
+                        break;
+
+                    case 3:
+                        System.out.println("Viwe Diet Plans");
+                        break;
+                    case 4:
+                        System.out.println("View Meals");
+                        break;
+                    case 5:
+                        System.out.println("Other Options");
+                        break;
+                    case 6:
+                        System.out.println("Exit");
+                        break;
+                    default:
+                        System.out.println("Invalid option");
+                        break;
+                }
                 break;
             case 6:
                 System.out.println("Exit");
