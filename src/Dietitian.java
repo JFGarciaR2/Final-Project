@@ -6,10 +6,7 @@ import java.util.Scanner;
 public class Dietitian extends Person {
     private String dietitianSpeciality = "";
 
-    public String getPersonName() {
-        return getPersonName(); 
-    }
-    
+
     // Create methods for Getters and Setters
     public void setDietitianSpeciality(String dietitianSpeciality) {
         this.dietitianSpeciality = dietitianSpeciality;
@@ -36,20 +33,23 @@ public class Dietitian extends Person {
             dietitian.setPersonId(sc.nextInt());
 
             if(dietitian.getPersonId() != 0){
+                sc.nextLine();
                 System.out.println("Enter the name of the dietitian: ");
-                dietitian.setPersonName(sc.next());
+                dietitian.setPersonName(sc.nextLine());
                 System.out.println("Enter the phone of the dietitian: ");
-                dietitian.setPersonPhone(sc.next());
+                dietitian.setPersonPhone(sc.nextLine());
                 System.out.println("Enter the email of the dietitian: ");
-                dietitian.setPersonEmail(sc.next());
+                dietitian.setPersonEmail(sc.nextLine());
                 System.out.println("Enter the gender of the dietitian: ");
-                dietitian.setPersonGender(sc.next());
+                dietitian.setPersonGender(sc.nextLine());
                 System.out.println("Enter the address of the dietitian: ");
-                dietitian.setPersonAddress(sc.next());
+                dietitian.setPersonAddress(sc.nextLine());
                 System.out.println("Enter the age of the dietitian: ");
                 dietitian.setPersonAge(sc.nextInt());
+                sc.nextLine();
                 System.out.println("Enter the speciality of the dietitian: ");
-                dietitian.setDietitianSpeciality(sc.next());
+                dietitian.setDietitianSpeciality(sc.nextLine());
+                
 
                 //Add the dietitian to the list when an instance is created
                 dList.add(dietitian);

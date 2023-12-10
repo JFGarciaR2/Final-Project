@@ -65,26 +65,30 @@ public class Patients extends Person {
             patient.setPersonId(sc.nextInt());
 
             if(patient.getPersonId() != 0){
+                sc.nextLine();
                 System.out.println("Enter the name of the patient: ");
-                patient.setPersonName(sc.next());
+                patient.setPersonName(sc.nextLine());
                 System.out.println("Enter the phone of the patient: ");
-                patient.setPersonPhone(sc.next());
+                patient.setPersonPhone(sc.nextLine());
                 System.out.println("Enter the email of the patient: ");
-                patient.setPersonEmail(sc.next());
+                patient.setPersonEmail(sc.nextLine());
                 System.out.println("Enter the patient Gender");
-                patient.setPersonGender(sc.next());
+                patient.setPersonGender(sc.nextLine());
                 System.out.println("Enter the patient Address");
-                patient.setPersonAddress(sc.next());
+                patient.setPersonAddress(sc.nextLine());
                 System.out.println("Enter the patient Age");
                 patient.setPersonAge(sc.nextInt());
+                sc.nextLine();
                 System.out.println("Enter the patient Blood Group");
-                patient.setPatientBloodGroup(sc.next());
+                patient.setPatientBloodGroup(sc.nextLine());
                 System.out.println("Enter the patient Disease");
-                patient.setPatientDisease(sc.next());
+                patient.setPatientDisease(sc.nextLine());
                 System.out.println("Enter the patient Weight");
                 patient.setPatientWeight(sc.nextInt());
+                sc.nextLine();
                 System.out.println("Enter the patient Height");
                 patient.setPatientHeight(sc.nextInt());
+                sc.nextLine();
                 // Add the patient to the list when an instance is created
                 pList.add(patient);
             }

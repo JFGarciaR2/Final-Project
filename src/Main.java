@@ -27,7 +27,7 @@ public class Main {
                 ArrayList<Patients> pList = Patients.patientsList(scanner);
 
                 File f = new File("patients.csv");
-                try (FileWriter fw = new FileWriter(f)) {
+                try (FileWriter fw = new FileWriter(f,true)) {
                     for (Patients p : pList) {
                     fw.write(p.toCSV());
                         }
@@ -66,7 +66,7 @@ public class Main {
                 ArrayList<Dietitian> dList = Dietitian.dietitianList(scanner);
 
                 File f2 = new File("dietitians.csv");
-                try (FileWriter fw = new FileWriter(f2)) {
+                try (FileWriter fw = new FileWriter(f2,true)) {
                     for (Dietitian d : dList) {
                     fw.write(d.toCSV());
                         }
@@ -75,7 +75,8 @@ public class Main {
                 }
 
                 //Read from CSV
-                  ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
+                /*
+                ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
 
                 Dietitian d;
                 String[] dataD;
@@ -93,6 +94,7 @@ public class Main {
                 for (Dietitian d2 : dList2) {
                     System.out.println(d2);
                 }
+                */
                 break;
 
             case 3:
