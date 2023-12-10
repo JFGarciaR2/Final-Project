@@ -96,23 +96,12 @@ public class DietPlan {
         return meal;
     }
 
-    private void setMeal(Meal foundMeal) {
-        this.meal = foundMeal;
-    }
-
-    private void setDietitian(Dietitian foundDietitian) {
-        this.dietitian = foundDietitian;
-    }
-
-    private void setPatient(Patients foundPatient) {
-        this.patient = foundPatient;
-    }
     public ArrayList<DietPlan> getDietPlanList() {
         return dietPlanList(scanner);
     }
 
     // Constructor 
-    public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dailyCalories, String macronutrientDistribution, String specificRecommendations, String patientName, String dietitianName, String mealName) {
+    public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dailyCalories, String macronutrientDistribution, String specificRecommendations) {
         setPlanId(planId);
         setPlanName(planName);
         setPlanDescription(planDescription);
@@ -122,9 +111,6 @@ public class DietPlan {
         setDayliCalories(dailyCalories);
         setMacronutrientDistribution(macronutrientDistribution);
         setSpecificRecomendations(specificRecommendations);
-        setPatient(findPatientByName(patientName));
-        setDietitian(findDietitianByName(dietitianName));
-        setMeal(findMealByName(mealName));
     }
 
     public static ArrayList<DietPlan> dietPlanList(Scanner scanner){
@@ -145,7 +131,7 @@ public class DietPlan {
 
         do {
             // Create a new instance of diet plan
-            DietPlan dietPlan = new DietPlan(0, "", "", "", "", "", 0, "", "", "", "", "");
+            DietPlan dietPlan = new DietPlan(0, "", "", "", "", "", 0, "", "");
         
             System.out.println("id: ");
             planId = scanner.nextInt();
@@ -169,12 +155,6 @@ public class DietPlan {
                 macronutrientDistribution = scanner.nextLine();
                 System.out.println("specific recommendations: ");
                 specificRecommendations = scanner.nextLine();
-                System.out.println("patient name: ");
-                patientName = scanner.nextLine();
-                System.out.println("dietitian name: ");
-                dietitianName = scanner.nextLine();
-                System.out.println("meal name: ");
-                mealName = scanner.nextLine();
         
                 // Set the values to the diet plan object
                 dietPlan.setPlanId(planId);
@@ -187,18 +167,6 @@ public class DietPlan {
                 dietPlan.setMacronutrientDistribution(macronutrientDistribution);
                 dietPlan.setSpecificRecomendations(specificRecommendations);
 
-                // Search for the patient by name and set it in the diet plan
-                Patients foundPatient = findPatientByName(patientName);
-                dietPlan.setPatient(foundPatient);
-
-                // Search for the dietitian by name and set it in the diet plan
-                Dietitian foundDietitian = findDietitianByName(dietitianName);
-                dietPlan.setDietitian(foundDietitian);
-
-                // Search for the meal by name and set it in the diet plan
-                Meal foundMeal = findMealByName(mealName);
-                dietPlan.setMeal(foundMeal);
-        
                 // Add the diet plan to the list when an instance is created
                 dpList.add(dietPlan);
         
@@ -222,7 +190,7 @@ public class DietPlan {
 
     //Method to write to CSV
     public String toCSV(){
-        return planId + ";" + planName + ";" + planDescription + ";" + planType + ";" + planDuration + ";" + planPrice + ";" + dailyCalories + ";" + macronutrientDistribution + ";" + specificRecommendations + ";" + patient.getPersonName() + ";" + dietitian.getPersonName() + ";" + meal.getMealName();
+        return getPlanId() + ";" + getPlanName() + ";" + getPlanDescription() + ";" + getPlanType() + ";" + getPlanDuration() + ";" + getPlanPrice() + ";" + getDayliCalories() + ";" + getMacronutrientDistribution() + ";" + getSpecificRecomendations() + "\n";
     }
     
     // Method to modify the diet plan
@@ -258,7 +226,6 @@ public class DietPlan {
         return false;
           
     }
-    
 
     // Methods to find the patient, dietitian, and meal by name
     private static Patients findPatientByName(String name) {

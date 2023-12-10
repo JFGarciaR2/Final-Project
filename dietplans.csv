@@ -1,10 +1,10 @@
-1;WeightLossPlan;Customized weight loss plan;Weight Loss;30 days;$200;1500;40% protein, 40% carbohydrates, 20% fat;Avoid processed foods;JohnDoe;JaneDietitian;GrilledChicken
-2;BalancedDiet;Balanced diet for overall health;Balanced;60 days;$300;1800;30% protein, 50% carbohydrates, 20% fat;Include a variety of fruits and vegetables;AliceSmith;BobNutritionist;Salad
-3;MuscleBuilding;High-protein diet for muscle building;Muscle Building;45 days;$250;2000;50% protein, 30% carbohydrates, 20% fat;Consume lean meats and legumes;ChrisFitness;EmilyDietitian;Steak
-4;VegetarianPlan;Vegetarian diet for plant-based lifestyle;Vegetarian;30 days;$180;1400;25% protein, 55% carbohydrates, 20% fat;Incorporate tofu and legumes;LilyVeggie;DavidVegan;VegetableStirFry
-5;LowCarbPlan;Low-carb diet for carbohydrate control;Low Carb;60 days;$280;1600;40% protein, 20% carbohydrates, 40% fat;Limit starchy foods;MarkLowCarb;AnnaDietitian;FishTacos
-6;HighFiberPlan;Diet rich in fiber for digestive health;High Fiber;45 days;$220;1700;30% protein, 45% carbohydrates, 25% fat;Include whole grains and fruits;SophiaHealthy;MichaelDietitian;FruitSalad
-7;KetoDiet;Ketogenic diet for fat burning;Keto;30 days;$320;1500;20% protein, 5% carbohydrates, 75% fat;Limit carbs and focus on healthy fats;EthanKeto;OliviaNutritionist;Oatmeal
-8;GlutenFreePlan;Gluten-free diet for gluten sensitivity;Gluten Free;60 days;$280;1600;25% protein, 50% carbohydrates, 25% fat;Avoid gluten-containing grains;IsabellaGlutenFree;NoahDietitian;Sushi
-9;DetoxCleanse;Detoxification plan for cleansing;Detox;7 days;$150;1200;20% protein, 60% carbohydrates, 20% fat;Emphasize fruits and vegetables;LucasDetox;AvaNutritionist;Smoothie
-10;IntermittentFasting;Intermittent fasting for metabolic benefits;Intermittent Fasting;Varies;$200;1400;25% protein, 40% carbohydrates, 35% fat;Follow a specific eating window;MiaFaster;LiamDietitian;GrilledChicken
+1;WeightLossPlan;Customized weight loss plan;Weight Loss;30 days;$199.99;1500;40% Protein, 30% Carbohydrates, 30% Fat;Avoid processed foods and sugars
+2;MuscleGainPlan;Muscle gain and strength program;Muscle Gain;60 days;$249.99;2500;50% Protein, 25% Carbohydrates, 25% Fat;Include lean protein sources and strength training
+3;VegetarianDiet;Plant-based diet for vegetarians;Vegetarian;45 days;$179.99;1200;60% Carbohydrates, 20% Protein, 20% Fat;Incorporate a variety of colorful vegetables and plant-based proteins
+4;BalancedDiet;Balanced and healthy eating plan;Balanced;90 days;$299.99;1800;40% Carbohydrates, 30% Protein, 30% Fat;Include a mix of whole grains, lean proteins, and healthy fats
+5;KetoPlan;Ketogenic diet for fat adaptation;Keto;60 days;$219.99;1600;70% Fat, 20% Protein, 10% Carbohydrates;Limit carb intake and focus on healthy fats
+6;LowSodiumDiet;Low-sodium meal plan for heart health;Heart Health;45 days;$189.99;1500;30% Carbohydrates, 30% Protein, 40% Fat;Avoid high-sodium processed foods
+7;GlutenFreeDiet;Gluten-free eating for gluten sensitivity;Gluten-Free;30 days;$169.99;1400;50% Carbohydrates, 25% Protein, 25% Fat;Choose gluten-free grains and proteins
+8;IntermittentFasting;Intermittent fasting and calorie cycling;Weight Management;60 days;$229.99;1700;40% Protein, 30% Carbohydrates, 30% Fat;Follow an eating window and fasting period
+9;MediterraneanDiet;Mediterranean-style eating for heart health;Heart Health;90 days;$319.99;1600;50% Carbohydrates, 20% Protein, 30% Fat;Emphasize olive oil, fruits, vegetables, and lean proteins
+10;DiabetesFriendly;Diabetes-friendly meal plan for blood sugar control;Diabetes Management;45 days;$199.99;1400;40% Carbohydrates, 30% Protein, 30% Fat;Focus on whole grains, fiber, and balanced meals

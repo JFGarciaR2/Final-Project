@@ -253,20 +253,14 @@ public class Main {
 
                                 break;
 
-                            case 2: // View Diet Plans
-
+                                case 2: // View Diet Plans
                                 ArrayList<DietPlan> dpList2 = new ArrayList<DietPlan>();
-
-                                DietPlan dp;
-                                String[] dataDP;
-
+                            
                                 try (Scanner sc = new Scanner(new File("dietplans.csv"))) {
                                     while (sc.hasNextLine()) {
-                                        dataDP = sc.nextLine().split(";");
-
-                                        if (dataDP.length == 12) {
-
-                                            dp = new DietPlan(
+                                        String[] dataDP = sc.nextLine().split(";");
+                                        if (dataDP.length == 9) {
+                                            DietPlan dp = new DietPlan(
                                                     Integer.parseInt(dataDP[0]),
                                                     dataDP[1],
                                                     dataDP[2],
@@ -275,23 +269,20 @@ public class Main {
                                                     dataDP[5],
                                                     Integer.parseInt(dataDP[6]),
                                                     dataDP[7],
-                                                    dataDP[8],
-                                                    dataDP[9],
-                                                    dataDP[10],
-                                                    dataDP[11]);
+                                                    dataDP[8]);
                                             dpList2.add(dp);
-
                                         }
                                     }
                                 } catch (IOException e) {
-                                    System.out.println("Error to read the file CSV");
+                                    System.out.println("Error reading the CSV file");
                                 }
-
+                            
                                 for (DietPlan dp2 : dpList2) {
                                     System.out.println(dp2);
                                 }
-                                
+                            
                                 break;
+                            
 
                             case 3: // Modify Diet Plan
                                 System.out.println("Enter the ID of the diet plan you want to modify:");
@@ -460,7 +451,7 @@ public class Main {
                     break;
                 
                 case 5:
-                    System.out.println("Exit");
+                    System.out.println("Gracias por elegirnos. Hasta pronto!");
                     salir = true;
                     break;
 
