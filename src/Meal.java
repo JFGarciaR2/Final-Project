@@ -86,12 +86,7 @@ public class Meal {
     // List to store instances of meals
     public static ArrayList<Meal> mealsList(Scanner sc){
         ArrayList<Meal> mealsList = new ArrayList<Meal>();
-        /*mealsList.add(new Meal(1, "Breakfast", "A healthy breakfast", "Breakfast", 300, "Carbs, Protein, Fat", "Morning"));
-        mealsList.add(new Meal(2, "Lunch", "A healthy lunch", "Lunch", 500, "Carbs, Protein, Fat", "Afternoon"));
-        mealsList.add(new Meal(3, "Dinner", "A healthy dinner", "Dinner", 400, "Carbs, Protein, Fat", "Evening"));
-        mealsList.add(new Meal(4, "Snack", "A healthy snack", "Snack", 200, "Carbs, Protein, Fat", "Anytime"));
-        return mealsList;*/
-
+       
         int mealId;
         String mealName;
         String mealDescription;

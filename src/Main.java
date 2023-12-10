@@ -17,8 +17,7 @@ public class Main {
             System.out.println("2. Dietitians");
             System.out.println("3. Diet Plans");
             System.out.println("4. Meals");
-            System.out.println("5. Other Options");
-            System.out.println("6. Exit");
+            System.out.println("5. Exit");
 
             int option = scanner.nextInt();
 
@@ -291,6 +290,7 @@ public class Main {
                                 for (DietPlan dp2 : dpList2) {
                                     System.out.println(dp2);
                                 }
+                                
                                 break;
 
                             case 3: // Modify Diet Plan
@@ -334,6 +334,13 @@ public class Main {
                                 } else {
                                     System.out.println("Diet plan not found.");
                                 }
+
+                                break;
+                            
+                            case 5: // Back
+                                back3 = true;
+                                break;
+
                             default:
                                 break;
                         }
@@ -377,7 +384,6 @@ public class Main {
                                 try (Scanner sc = new Scanner(new File("meals.csv"))) {
                                     while (sc.hasNextLine()) {
                                         dataM = sc.nextLine().split(";");
-
                                         if (dataM.length == 7) {
 
                                             m = new Meal(
@@ -439,12 +445,8 @@ public class Main {
                                 break;
 
                             case 5:
-                                System.out.println("Other Options");
-                                break;
-
-                            case 6:
                                 System.out.println("Exit");
-                                salir = true;
+                                back4 = true;
                                 break;
 
                             default:
@@ -453,7 +455,18 @@ public class Main {
 
                         }
 
+                
                     }
+                    break;
+                
+                case 5:
+                    System.out.println("Exit");
+                    salir = true;
+                    break;
+
+                default:
+                    System.out.println("Invalid option");
+                    break;
 
             }
         }
