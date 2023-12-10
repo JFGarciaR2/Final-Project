@@ -230,8 +230,8 @@ public class DietPlan {
     }
     
     // Method to modify the diet plan
-    public static void modifyDietPlan(int id, String name, String description, String type, String duration, String price, int calories, String macronutrient, String recommendations, ArrayList<DietPlan> dietPlanList, Scanner sc) {
-        for (DietPlan dietPlan : dietPlanList) {
+    public static void modifyDietPlan(int id, String name, String description, String type, String duration, String price, int calories, String macronutrient, String recommendations) {
+        for (DietPlan dietPlan : dietPlanList(scanner)) {
             if (dietPlan.getPlanId() == id) {
                 dietPlan.setPlanName(name);
                 dietPlan.setPlanDescription(description);
@@ -248,18 +248,19 @@ public class DietPlan {
 
     }
 
-    // Method to delete the diet plan
-    public static void deleteDietPlan(ArrayList<DietPlan> dietPlanList, Scanner sc) {
-        System.out.println("Enter the id of the diet plan you want to delete: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        for (DietPlan dietPlan : dietPlanList) {
+    // Method to remove the diet plan
+    public static boolean removeDietPlanById(int id) {
+        Iterator<DietPlan> iterator = dietPlanList(scanner).iterator();
+        while (iterator.hasNext()) {
+            DietPlan dietPlan = iterator.next();
             if (dietPlan.getPlanId() == id) {
-                dietPlanList.remove(dietPlan);
-                System.out.println("Diet plan deleted successfully!");
-                break;
+                iterator.remove();
+                System.out.println("Diet plan removed successfully!");
+                return true;
             }
         }
+        return false;
+          
     }
     
 

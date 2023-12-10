@@ -312,11 +312,29 @@ public class Main {
                                 String newDietPlanDuration = scanner.next();
                                 System.out.println("Enter new diet plan price: ");
                                 String newDietPlanPrice = scanner.next();
+                                System.out.println("Enter new diet plan calories: ");
+                                int newDietPlanCalories = scanner.nextInt();
                                 System.out.println("Enter new diet plan macronutrient: ");
+                                String newDietPlanMacronutrient = scanner.next();
+                                System.out.println("Enter new diet plan recommendations: ");
+                                String newDietPlanRecommendations = scanner.next();
                                 
                                 // Call the method to modify diet plan attributes
-                                DietPlan.modifyDietPlan(dietPlanIdToModify, newDietPlanName, newDietPlanDescription, newDietPlanType, newDietPlanDuration, newDietPlanPrice, newDietPlanCalories, newDietPlanMacronutrient, newDietPlanRecommendations, dpList, scanner);                                break;
+                                DietPlan.modifyDietPlan(dietPlanIdToModify, newDietPlanName, newDietPlanDescription, newDietPlanType, newDietPlanDuration, newDietPlanPrice, newDietPlanCalories, newDietPlanMacronutrient, newDietPlanRecommendations);                               
+                                break;
 
+                            case 4: //Delete Diet Plan
+
+                                System.out.println("Enter diet plan ID to delete: ");
+                                int dietPlanIdToDelete = scanner.nextInt();
+
+                                // Call the method to remove a diet plan by ID
+                                boolean deletionResult = DietPlan.removeDietPlanById(dietPlanIdToDelete);
+                                if (deletionResult) {
+                                    System.out.println("Diet plan successfully deleted.");
+                                } else {
+                                    System.out.println("Diet plan not found.");
+                                }
                             default:
                                 break;
                         }
