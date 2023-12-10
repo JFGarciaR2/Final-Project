@@ -28,7 +28,7 @@ public class Meal {
     }
 
     public String getMealName() {
-        return getMealName(); 
+        return mealName;
     }
     
 
@@ -99,35 +99,39 @@ public class Meal {
             Meal meal = new Meal(0, "", "", "", 0, "", "");
             System.out.println("Enter the meal id: ");
             mealId = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Enter the meal name: ");
-            mealName = sc.nextLine();
-            System.out.println("Enter the meal description: ");
-            mealDescription = sc.nextLine();
-            System.out.println("Enter the meal type: ");
-            mealType = sc.nextLine();
-            System.out.println("Enter the meal calories: ");
-            mealCalories = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Enter the meal macro nutrients: ");
-            macroNutrients = sc.nextLine();
-            System.out.println("Enter the meal time of day: ");
-            timeOfDay = sc.nextLine();
 
-            // Set the values to the meal object
-            meal.setMealId(mealId);
-            meal.setMealName(mealName);
-            meal.setMealDescription(mealDescription);
-            meal.setMealType(mealType);
-            meal.setMealCalories(mealCalories);
-            meal.setMacroNutrients(macroNutrients);
-            meal.setTimeOfDay(timeOfDay);
+            if (mealId != 0) {
+                sc.nextLine();
+                System.out.println("Enter the meal name: ");
+                mealName = sc.nextLine();
+                System.out.println("Enter the meal description: ");
+                mealDescription = sc.nextLine();
+                System.out.println("Enter the meal type: ");
+                mealType = sc.nextLine();
+                System.out.println("Enter the meal calories: ");
+                mealCalories = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Enter the meal macro nutrients: ");
+                macroNutrients = sc.nextLine();
+                System.out.println("Enter the meal time of day: ");
+                timeOfDay = sc.nextLine();
 
-            // Add the meal to the list
-            mealsList.add(meal);
+                // Set the values to the meal object
+                meal.setMealId(mealId);
+                meal.setMealName(mealName);
+                meal.setMealDescription(mealDescription);
+                meal.setMealType(mealType);
+                meal.setMealCalories(mealCalories);
+                meal.setMacroNutrients(macroNutrients);
+                meal.setTimeOfDay(timeOfDay);
 
-            System.out.println("Meal added successfully!");
-            System.out.println("Enter 0 to exit or any other number to continue: ");
+                // Add the meal to the list
+                mealsList.add(meal);
+
+                System.out.println("Meal added successfully!");
+                System.out.println("Enter 0 to exit or any other number to continue: ");
+            }
+
         } while(mealId != 0);
 
         return mealsList;

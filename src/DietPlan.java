@@ -16,9 +16,9 @@ public class DietPlan {
     private static int dailyCalories;
     private String macronutrientDistribution;
     private String specificRecommendations;
-    private Patients patient;
     private Dietitian dietitian;
     private Meal meal;
+    private Patients patient;
 
     // Create methods Getters and Setters
     public void setPlanId(int planId) {
@@ -113,32 +113,27 @@ public class DietPlan {
 
     // Constructor 
     public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dailyCalories, String macronutrientDistribution, String specificRecommendations, String patientName, String dietitianName, String mealName) {
-        this.planId = planId;
-        this.planName = planName;
-        this.planDescription = planDescription;
-        this.planType = planType;
-        this.planDuration = planDuration;
-        this.planPrice = planPrice;
-        DietPlan.dailyCalories = dailyCalories;
-        this.macronutrientDistribution = macronutrientDistribution;
-        this.specificRecommendations = specificRecommendations;
-        // Search the patient by name
-        this.patient = findPatientByName(patientName);
-        // Search the dietitian by name
-        this.dietitian = findDietitianByName(dietitianName);
-        // Search the meal by name
-        this.meal = findMealByName(mealName);
-
+        setPlanId(planId);
+        setPlanName(planName);
+        setPlanDescription(planDescription);
+        setPlanType(planType);
+        setPlanDuration(planDuration);
+        setPlanPrice(planPrice);
+        setDayliCalories(dailyCalories);
+        setMacronutrientDistribution(macronutrientDistribution);
+        setSpecificRecomendations(specificRecommendations);
+        setPatient(findPatientByName(patientName));
+        setDietitian(findDietitianByName(dietitianName));
+        setMeal(findMealByName(mealName));
     }
 
     public static ArrayList<DietPlan> dietPlanList(Scanner scanner){
 
         ArrayList<DietPlan> dpList = new ArrayList<DietPlan>();
         
-        int planId;
         String planName;
+        int planId;
         String planDescription;
-        String planType;
         String planDuration;
         String planPrice;
         int dailyCalories;
@@ -162,7 +157,7 @@ public class DietPlan {
                 System.out.println("description: ");
                 planDescription = scanner.nextLine();
                 System.out.println("type: ");
-                planType = scanner.nextLine();
+                String planType = scanner.nextLine();
                 System.out.println("duration: ");
                 planDuration = scanner.nextLine();
                 System.out.println("price: ");
@@ -191,15 +186,15 @@ public class DietPlan {
                 dietPlan.setDayliCalories(dailyCalories);
                 dietPlan.setMacronutrientDistribution(macronutrientDistribution);
                 dietPlan.setSpecificRecomendations(specificRecommendations);
-        
+
                 // Search for the patient by name and set it in the diet plan
                 Patients foundPatient = findPatientByName(patientName);
                 dietPlan.setPatient(foundPatient);
-        
+
                 // Search for the dietitian by name and set it in the diet plan
                 Dietitian foundDietitian = findDietitianByName(dietitianName);
                 dietPlan.setDietitian(foundDietitian);
-        
+
                 // Search for the meal by name and set it in the diet plan
                 Meal foundMeal = findMealByName(mealName);
                 dietPlan.setMeal(foundMeal);
