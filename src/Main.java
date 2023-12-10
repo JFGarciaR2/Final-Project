@@ -19,7 +19,8 @@ public class Main {
 
         int option = scanner.nextInt();
         switch (option) {
-            case 1:
+            case 1://PATIENTS
+
                 //Write to CSV
                 System.out.println("Patients");
 
@@ -57,7 +58,8 @@ public class Main {
                 
                 break;
 
-            case 2:
+            case 2://DIETITIANS
+
                 //Write to CSV
                 System.out.println("Dietitians");
 
@@ -75,14 +77,14 @@ public class Main {
                 //Read from CSV
                   ArrayList<Dietitian> dList2 = new ArrayList<Dietitian>();
 
-                Dietitian d2;
+                Dietitian d;
                 String[] dataD;
 
                 try (Scanner sc =  new Scanner(new File("patients.csv"))){
                     while (sc.hasNextLine()) {
                         dataD = sc.nextLine().split(";");
-                        p = new Patients(option, dataD[0], dataD[1], dataD[2], dataD[3], dataD[4], dataD[5], option, dataD[6], null, option, option);
-                        dList2.add(d2);
+                        d = new Dietitian(option, dataD[0], dataD[1], dataD[2], dataD[3], dataD[4], dataD[5], option, dataD[6]);
+                        dList2.add(d);
                     }
                 } catch (IOException e) {
                     System.out.println("Error");
@@ -109,10 +111,6 @@ public class Main {
                 System.out.println("Invalid option");
                 break;
         }
-
-
-        //DIETITIANS
-        //ArrayList<Dietitian> dList = Dietitian.dietitianList(scanner);
 
     }
 }
