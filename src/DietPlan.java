@@ -3,6 +3,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Iterator;
+
 
 public class DietPlan {
     static Scanner scanner = new Scanner(System.in);
@@ -93,6 +95,21 @@ public class DietPlan {
 
     public Meal getMeal() {
         return meal;
+    }
+
+    private void setMeal(Meal foundMeal) {
+        this.meal = foundMeal;
+    }
+
+    private void setDietitian(Dietitian foundDietitian) {
+        this.dietitian = foundDietitian;
+    }
+
+    private void setPatient(Patients foundPatient) {
+        this.patient = foundPatient;
+    }
+    public ArrayList<DietPlan> getDietPlanList() {
+        return dietPlanList(scanner);
     }
 
     // Constructor 
@@ -197,21 +214,54 @@ public class DietPlan {
         return dietPlanList;
     
     }
+
+    @Override
+    public String toString() {
+        return "DietPlan [dailyCalories=" + dailyCalories + ", dietitian=" + dietitian + ", macronutrientDistribution="
+                + macronutrientDistribution + ", meal=" + meal + ", patient=" + patient + ", planDescription="
+                + planDescription + ", planDuration=" + planDuration + ", planId=" + planId + ", planName=" + planName
+                + ", planPrice=" + planPrice + ", planType=" + planType + ", specificRecommendations="
+                + specificRecommendations + "]";
+    }
+
+    //Method to write to CSV
+    public String toCSV(){
+        return planId + ";" + planName + ";" + planDescription + ";" + planType + ";" + planDuration + ";" + planPrice + ";" + dailyCalories + ";" + macronutrientDistribution + ";" + specificRecommendations + ";" + patient.getPersonName() + ";" + dietitian.getPersonName() + ";" + meal.getMealName();
+    }
     
-    private void setMeal(Meal foundMeal) {
-        this.meal = foundMeal;
+    // Method to modify the diet plan
+    public static void modifyDietPlan(int id, String name, String description, String type, String duration, String price, int calories, String macronutrient, String recommendations, ArrayList<DietPlan> dietPlanList, Scanner sc) {
+        for (DietPlan dietPlan : dietPlanList) {
+            if (dietPlan.getPlanId() == id) {
+                dietPlan.setPlanName(name);
+                dietPlan.setPlanDescription(description);
+                dietPlan.setPlanType(type);
+                dietPlan.setPlanDuration(duration);
+                dietPlan.setPlanPrice(price);
+                dietPlan.setDayliCalories(calories);
+                dietPlan.setMacronutrientDistribution(macronutrient);
+                dietPlan.setSpecificRecomendations(recommendations);
+                System.out.println("Diet plan modified successfully!");
+                break;
+            }
+        }
+
     }
 
-    private void setDietitian(Dietitian foundDietitian) {
-        this.dietitian = foundDietitian;
+    // Method to delete the diet plan
+    public static void deleteDietPlan(ArrayList<DietPlan> dietPlanList, Scanner sc) {
+        System.out.println("Enter the id of the diet plan you want to delete: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        for (DietPlan dietPlan : dietPlanList) {
+            if (dietPlan.getPlanId() == id) {
+                dietPlanList.remove(dietPlan);
+                System.out.println("Diet plan deleted successfully!");
+                break;
+            }
+        }
     }
-
-    private void setPatient(Patients foundPatient) {
-        this.patient = foundPatient;
-    }
-    public ArrayList<DietPlan> getDietPlanList() {
-        return dietPlanList(scanner);
-    }
+    
 
     // Methods to find the patient, dietitian, and meal by name
     private static Patients findPatientByName(String name) {

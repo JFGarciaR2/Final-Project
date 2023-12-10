@@ -229,7 +229,98 @@ public class Main {
                     break;
                     
                 case 3:
+                    //DIET PLANS
                     System.out.println("Diet Plans");
+
+                    boolean back3 = false;
+                    while(!back3){
+                        System.out.println("1. Add Diet Plan");
+                        System.out.println("2. View Diet Plans");
+                        System.out.println("3. Modify Diet Plan");
+                        System.out.println("4. Delete Diet Plan");
+                        System.out.println("5. Back");
+                        int optionDietPlans = scanner.nextInt();
+
+                        switch (optionDietPlans) {
+                            case 1: //Add Diet Plan
+                                ArrayList<DietPlan> dpList = DietPlan.dietPlanList(scanner);
+
+                                File f3 = new File("dietplans.csv");
+                                try (FileWriter fw = new FileWriter(f3,true)) {
+                                    for (DietPlan dp : dpList) {
+                                    fw.write(dp.toCSV());
+                                        }
+                                } catch (IOException e) {
+                                    System.out.println("Error");
+                                }
+                            
+                                break;
+                            
+                            case 2: //View Diet Plans
+                                
+                                ArrayList<DietPlan> dpList2 = new ArrayList<DietPlan>();
+
+                                DietPlan dp;
+                                String[] dataDP;
+
+                                try (Scanner sc = new Scanner(new File("dietplans.csv"))) {
+                                    while (sc.hasNextLine()) {
+                                        dataDP = sc.nextLine().split(";");
+
+                                        if (dataDP.length == 12) {
+
+                                            dp = new DietPlan(
+                                            Integer.parseInt(dataDP[0]),
+                                            dataDP[1],
+                                            dataDP[2],
+                                            dataDP[3],
+                                            dataDP[4],
+                                            dataDP[5],
+                                            Integer.parseInt(dataDP[6]),
+                                            dataDP[7],
+                                            dataDP[8],
+                                            dataDP[9],
+                                            dataDP[10],
+                                            dataDP[11]
+                                            );
+                                            dpList2.add(dp);
+
+                                        }
+                                    } 
+                                } catch (IOException e) {
+                                    System.out.println("Error to read the file CSV");
+                                }
+
+                                for (DietPlan dp2 : dpList2) {
+                                    System.out.println(dp2);
+                                }
+                                break;
+                        
+                            case 3: //Modify Diet Plan
+                                System.out.println("Enter the ID of the diet plan you want to modify:");
+                                int dietPlanIdToModify = scanner.nextInt();
+                                scanner.nextLine();
+
+                                // Collect other information you want to modify
+                                System.out.println("Enter new diet plan name: ");
+                                String newDietPlanName = scanner.next();
+                                System.out.println("Enter new diet plan description: ");
+                                String newDietPlanDescription = scanner.next();
+                                System.out.println("Enter new diet plan type: ");
+                                String newDietPlanType = scanner.next();
+                                System.out.println("Enter new diet plan duration: ");
+                                String newDietPlanDuration = scanner.next();
+                                System.out.println("Enter new diet plan price: ");
+                                String newDietPlanPrice = scanner.next();
+                                System.out.println("Enter new diet plan macronutrient: ");
+                                
+                                // Call the method to modify diet plan attributes
+                                DietPlan.modifyDietPlan(dietPlanIdToModify, newDietPlanName, newDietPlanDescription, newDietPlanType, newDietPlanDuration, newDietPlanPrice, newDietPlanCalories, newDietPlanMacronutrient, newDietPlanRecommendations, dpList, scanner);                                break;
+
+                            default:
+                                break;
+                        }
+                    }
                     break;
 
                 case 4:
