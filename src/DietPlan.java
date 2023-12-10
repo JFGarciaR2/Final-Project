@@ -124,7 +124,7 @@ public class DietPlan {
 
     // Methods to find the patient, dietitian, and meal by name
     private Patients findPatientByName(String name) {
-        for (Patients patient : new Patients(dailyCalories, name, name, name, name, name, name, dailyCalories, name, name, dailyCalories, dailyCalories).getPatientsList()) {
+        for (Patients patient : new Patients(dailyCalories, name, name, name, name, name, dailyCalories, name, name, dailyCalories, dailyCalories).getPatientsList()) {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 return patient;
             }

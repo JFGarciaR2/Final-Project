@@ -47,7 +47,7 @@ public class Patients extends Person {
     }
 
     // Constructor to initialize a patient with data
-    public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, String personOccupation, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
+    public Patients(int personId, String personName, String personPhone, String personEmail, String personGender, String personAddress, int age, String patientBloodGroup, String patientDisease, int patientWeight, int patientHeight) {
         super(personId, personName, personPhone, personEmail, personGender, personAddress, age);
         setPatientBloodGroup(patientBloodGroup);
         setPatientDisease(patientDisease);
@@ -58,7 +58,7 @@ public class Patients extends Person {
     // List to store instances of patients
     public static ArrayList<Patients> patientsList(Scanner sc){
         ArrayList<Patients> pList = new ArrayList<>();
-        Patients patient = new Patients(0, "", "", "", "", "", "", 0, "", "", 0, 0);
+        Patients patient = new Patients(0, "", "", "", "", "", 0, "", "", 0, 0);
         
         do{
             System.out.println("Enter the ID of the patient: ");

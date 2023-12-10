@@ -45,7 +45,7 @@ public class Main {
                 try (Scanner sc =  new Scanner(new File("patients.csv"))){
                     while (sc.hasNextLine()) {
                         dataP = sc.nextLine().split(";");
-                        p = new Patients(option, dataP[0], dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], option, dataP[6], null, option, option);
+                        p = new Patients(option, dataP[0], dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], option, dataP[6], option, option, option, option, option, option, option, option,opt);
                         pList2.add(p);
                     }
                 } catch (IOException e) {
