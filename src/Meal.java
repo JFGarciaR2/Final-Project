@@ -1,7 +1,6 @@
 // Author: Juan Fernando Garcia Restrepo
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Meal {
@@ -83,7 +82,6 @@ public class Meal {
         setTimeOfDay(time);
     }
 
-
     // List to store instances of meals
     public static ArrayList<Meal> mealsList(Scanner sc){
         ArrayList<Meal> mealsList = new ArrayList<Meal>();
@@ -157,7 +155,6 @@ public class Meal {
         return mealId + ";" + mealName + ";" + mealDescription + ";" + mealType + ";" + mealCalories + ";" + macroNutrients + ";" + timeOfDay;
     }
     
-
     //Method to update a meal from the list
     public static void updateMeal(ArrayList<Meal> mealsList, Scanner sc){
         System.out.println("Enter the meal id to update: ");
@@ -206,7 +203,6 @@ public class Meal {
             }
         }
     }
-
 
     // Get the list of meals
     public ArrayList<Meal> getMealList() {

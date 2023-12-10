@@ -2,15 +2,17 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class DietPlan {
+    static Scanner scanner = new Scanner(System.in);
     private int planId;
     private String planName;
     private String planDescription;
     private String planType;
     private String planDuration;
     private String planPrice;
-    private int dailyCalories;
+    private static int dailyCalories;
     private String macronutrientDistribution;
     private String specificRecommendations;
     private Patients patient;
@@ -93,13 +95,6 @@ public class DietPlan {
         return meal;
     }
 
-    // List to store instances of diet plans
-    private List<DietPlan> dietPlanList = new ArrayList<>();
-
-    public List<DietPlan> getDietPlanList() {
-        return dietPlanList;
-    }
-
     // Constructor 
     public DietPlan(int planId, String planName, String planDescription, String planType, String planDuration, String planPrice, int dailyCalories, String macronutrientDistribution, String specificRecommendations, String patientName, String dietitianName, String mealName) {
         this.planId = planId;
@@ -118,12 +113,108 @@ public class DietPlan {
         // Search the meal by name
         this.meal = findMealByName(mealName);
 
-        // Add the diet plan to the list when an instance is created
-        dietPlanList.add(this);
+    }
+
+    public static ArrayList<DietPlan> dietPlanList(Scanner sc){
+        ArrayList<DietPlan> dietPlanList = new ArrayList<DietPlan>();
+        
+        int planId;
+        String planName;
+        String planDescription;
+        String planType;
+        String planDuration;
+        String planPrice;
+        int dailyCalories;
+        String macronutrientDistribution;
+        String specificRecommendations;
+        String patientName;
+        String dietitianName;
+        String mealName;
+
+        do {
+            // Create a new instance of diet plan
+            DietPlan dietPlan = new DietPlan(0, "", "", "", "", "", 0, "", "", "", "", "");
+        
+            System.out.println("id: ");
+            planId = sc.nextInt();
+        
+            if (planId != 0) {
+                sc.nextLine();
+                System.out.println("name: ");
+                planName = sc.nextLine();
+                System.out.println("description: ");
+                planDescription = sc.nextLine();
+                System.out.println("type: ");
+                planType = sc.nextLine();
+                System.out.println("duration: ");
+                planDuration = sc.nextLine();
+                System.out.println("price: ");
+                planPrice = sc.nextLine();
+                System.out.println("daily calories: ");
+                dailyCalories = sc.nextInt();
+                sc.nextLine();
+                System.out.println("macronutrient distribution: ");
+                macronutrientDistribution = sc.nextLine();
+                System.out.println("specific recommendations: ");
+                specificRecommendations = sc.nextLine();
+                System.out.println("patient name: ");
+                patientName = sc.nextLine();
+                System.out.println("dietitian name: ");
+                dietitianName = sc.nextLine();
+                System.out.println("meal name: ");
+                mealName = sc.nextLine();
+        
+                // Set the values to the diet plan object
+                dietPlan.setPlanId(planId);
+                dietPlan.setPlanName(planName);
+                dietPlan.setPlanDescription(planDescription);
+                dietPlan.setPlanType(planType);
+                dietPlan.setPlanDuration(planDuration);
+                dietPlan.setPlanPrice(planPrice);
+                dietPlan.setDayliCalories(dailyCalories);
+                dietPlan.setMacronutrientDistribution(macronutrientDistribution);
+                dietPlan.setSpecificRecomendations(specificRecommendations);
+        
+                // Search for the patient by name and set it in the diet plan
+                Patients foundPatient = findPatientByName(patientName);
+                dietPlan.setPatient(foundPatient);
+        
+                // Search for the dietitian by name and set it in the diet plan
+                Dietitian foundDietitian = findDietitianByName(dietitianName);
+                dietPlan.setDietitian(foundDietitian);
+        
+                // Search for the meal by name and set it in the diet plan
+                Meal foundMeal = findMealByName(mealName);
+                dietPlan.setMeal(foundMeal);
+        
+                // Add the diet plan to the list when an instance is created
+                dietPlanList.add(dietPlan);
+        
+                System.out.println("Diet plan added successfully!");
+                System.out.println("Enter 0 to exit or any other number to continue: ");
+            }   
+        } while (planId != 0);
+        return dietPlanList;
+    
+    }
+    
+    private void setMeal(Meal foundMeal) {
+        this.meal = foundMeal;
+    }
+
+    private void setDietitian(Dietitian foundDietitian) {
+        this.dietitian = foundDietitian;
+    }
+
+    private void setPatient(Patients foundPatient) {
+        this.patient = foundPatient;
+    }
+    public ArrayList<DietPlan> getDietPlanList() {
+        return dietPlanList(scanner);
     }
 
     // Methods to find the patient, dietitian, and meal by name
-    private Patients findPatientByName(String name) {
+    private static Patients findPatientByName(String name) {
         for (Patients patient : new Patients(dailyCalories, name, name, name, name, name, dailyCalories, name, name, dailyCalories, dailyCalories).getPatientsList()) {
             if (patient.getPersonName().equalsIgnoreCase(name)) {
                 return patient;
@@ -132,7 +223,7 @@ public class DietPlan {
         return null;
     }
 
-    private Dietitian findDietitianByName(String name) {
+    private static Dietitian findDietitianByName(String name) {
         for (Dietitian dietitian : new Dietitian(dailyCalories, name, name, name, name, name, dailyCalories, name).getDietitianList()) {
             if (dietitian.getPersonName().equalsIgnoreCase(name)) {
                 return dietitian;
@@ -141,7 +232,7 @@ public class DietPlan {
         return null;
     }
 
-    private Meal findMealByName(String mealName) {
+    private static Meal findMealByName(String mealName) {
         for (Meal meal : new Meal(dailyCalories, mealName, mealName, mealName, dailyCalories, mealName, mealName).getMealList()) {
             if (meal.getMealName().equalsIgnoreCase(mealName)) {
                 return meal;
@@ -150,5 +241,5 @@ public class DietPlan {
         return null;
     }
 
-    
-}
+}    
+
