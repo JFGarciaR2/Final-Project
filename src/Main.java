@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -82,16 +83,31 @@ public class Main {
                         Patients p;
                         String[] dataP;
 
-                        try (Scanner sc =  new Scanner(new File("patients.csv"))){
+                        try (Scanner sc = new Scanner(new File("patients.csv"))){
                             while (sc.hasNextLine()) {
                                 dataP = sc.nextLine().split(";");
-                                p = new Patients(Integer.parseInt(dataP[0]), dataP[1], dataP[2], dataP[3], dataP[4], dataP[5], Integer.parseInt(dataP[6]), dataP[7], dataP[8], Integer.parseInt(dataP[9]), Integer.parseInt(dataP[10]));
-                                pList2.add(p);
+                                if (dataP.length == 11) { // 11 attributes
+                                    
+                                    p = new Patients(
+                                    Integer.parseInt(dataP[0]),
+                                    dataP[1],
+                                    dataP[2],
+                                    dataP[3],
+                                    dataP[4],
+                                    dataP[5],
+                                    Integer.parseInt(dataP[6]),
+                                    dataP[7],
+                                    dataP[8],
+                                    Integer.parseInt(dataP[9]),
+                                    Integer.parseInt(dataP[10])
+                                    );
+                                    pList2.add(p);
+                
+                                } 
                             }
                         } catch (IOException e) {
-                            System.out.println("Error");
+                            System.out.println("Error to read file");
                         }
-
                         for (Patients p2 : pList2) {
                             System.out.println(p2);
                         }
@@ -107,14 +123,26 @@ public class Main {
                         Dietitian d;
                         String[] dataD;
 
-                        try (Scanner sc =  new Scanner(new File("patients.csv"))){
+                        try (Scanner sc = new Scanner(new File("patients.csv"))) {
                             while (sc.hasNextLine()) {
                                 dataD = sc.nextLine().split(";");
-                                d = new Dietitian(option, dataD[0], dataD[1], dataD[2], dataD[3], dataD[4], dataD[5], option, dataD[6]);
-                                dList2.add(d);
-                            }
+                                if (dataD.length == 9) {
+                                    d = new Dietitian(
+                                    Integer.parseInt(dataD[0]),
+                                    dataD[1],
+                                    dataD[2],
+                                    dataD[3],
+                                    dataD[4],
+                                    dataD[5],
+                                    dataD[6],
+                                    Integer.parseInt(dataD[7]),
+                                    dataD[8]
+                                    );
+                                    dList2.add(d);
+                                    }
+                                } 
                         } catch (IOException e) {
-                            System.out.println("Error");
+                            System.out.println("Error al leer el archivo CSV");
                         }
 
                         for (Dietitian d2 : dList2) {

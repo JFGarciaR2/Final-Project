@@ -1,11 +1,7 @@
 //Author: Juan Fernando Garcia Restrepo
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
 
 public class Patients extends Person {
